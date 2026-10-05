@@ -1,0 +1,646 @@
+@import "tailwindcss";
+
+/* ===========================
+   WARM PAPER DESIGN TOKENS
+   Bound into Tailwind v4 theme
+=========================== */
+@theme {
+  /* Backgrounds */
+  --color-paper: #f6f3ed;
+  --color-paper-2: #efeae1;
+  --color-dunes: #e8e1d4;
+  --color-card: #fffdf7;
+
+  /* Ink text scale */
+  --color-ink: #26241e;
+  --color-ink-2: #45413a;
+  --color-ink-3: #7a7263;
+  --color-ink-4: #a79e8e;
+
+  /* Accents */
+  --color-clay: #c4581f;
+  --color-clay-bright: #d97742;
+  --color-clay-dark: #a8481a;
+  --color-pine: #2a6f5f;
+  --color-amber: #b7791f;
+  --color-slateish: #4a5568;
+
+  /* Charcoal code block */
+  --color-charcoal: #26241e;
+  --color-charcoal-2: #1c1a15;
+
+  /* Warm hairlines & soft accent washes */
+  --color-hairline: rgb(38 36 30 / 0.1);
+  --color-hairline-strong: rgb(38 36 30 / 0.22);
+  --color-clay-soft: rgb(196 88 31 / 0.1);
+  --color-clay-soft-strong: rgb(196 88 31 / 0.18);
+  --color-clay-line: rgb(196 88 31 / 0.25);
+
+  /* Typography */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Sharp radius */
+  --radius-sharp: 4px;
+  --radius-sharp-lg: 6px;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Theme-tunable surfaces & effects (overridden wholesale in html.dark) */
+  --color-terminal-fg: #ede7da;
+  --color-terminal-meta: #8f8776;
+  --color-danger: #b43c28;
+  --panel-shadow: 0 24px 64px rgb(38 36 30 / 0.22);
+  --grain-opacity: 0.035;
+  --outline-stroke: 0.28vw;
+  --hero-grid-line: rgb(196 88 31 / 0.05);
+  --glow-clay: rgb(196 88 31 / 0.1);
+  --glow-amber: rgb(183 121 31 / 0.09);
+  --cursor-ring: rgb(38 36 30 / 0.3);
+  --theme-color: #f6f3ed;
+}
+
+/* ===========================
+   DARK THEME — warm charcoal night
+   Same token names, flipped values: every bg-paper, text-ink-3,
+   border-hairline and bg-clay-soft utility inverts with the root class,
+   so no component needs a dark: variant for colour.
+=========================== */
+@custom-variant dark (&:where(.dark, .dark *));
+
+html.dark {
+  color-scheme: dark;
+
+  /* Backgrounds */
+  --color-paper: #131210;
+  --color-paper-2: #191712;
+  --color-dunes: #262219;
+  --color-card: #1c1a15;
+
+  /* Ink text scale */
+  --color-ink: #ede7da;
+  --color-ink-2: #c9c1b1;
+  --color-ink-3: #9a9184;
+  --color-ink-4: #7b7261;
+
+  /* Accents */
+  --color-clay: #e4703b;
+  --color-clay-bright: #f08f55;
+  --color-clay-dark: #c4581f;
+  --color-pine: #57b79b;
+  --color-amber: #dfa53f;
+  --color-slateish: #8fa0bc;
+
+  /* Charcoal code block — lifted above the page so it reads as a panel */
+  --color-charcoal: #1c1a15;
+  --color-charcoal-2: #17150f;
+
+  /* Warm hairlines & soft accent washes */
+  --color-hairline: rgb(237 231 218 / 0.12);
+  --color-hairline-strong: rgb(237 231 218 / 0.28);
+  --color-clay-soft: rgb(228 112 59 / 0.14);
+  --color-clay-soft-strong: rgb(228 112 59 / 0.22);
+  --color-clay-line: rgb(228 112 59 / 0.32);
+
+  /* Effects */
+  --panel-shadow: 0 24px 64px rgb(0 0 0 / 0.55);
+  --grain-opacity: 0.05;
+  --outline-stroke: 0.32vw;
+  --hero-grid-line: rgb(228 112 59 / 0.07);
+  --glow-clay: rgb(228 112 59 / 0.16);
+  --glow-amber: rgb(223 165 63 / 0.12);
+  --cursor-ring: rgb(237 231 218 / 0.34);
+  --theme-color: #131210;
+}
+
+/* ===========================
+   BASE
+=========================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* fixed navbar height, so anchor jumps never hide a heading */
+    scroll-padding-top: 72px;
+    color-scheme: light;
+    /* clip (not hidden) so position: sticky keeps working, and so the
+       few px a 100vw-based .bleed-x gains over the client width
+       (the custom 6px scrollbar) can never scroll sideways */
+    overflow-x: clip;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-clay) 18%, transparent);
+    color: var(--color-clay);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-paper-2);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-dunes);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-clay);
+  }
+
+  section {
+    scroll-margin-top: 72px;
+  }
+
+  /* Cross-fade the swap instead of snapping every surface at once */
+  .theme-anim,
+  .theme-anim body,
+  .theme-anim header,
+  .theme-anim section,
+  .theme-anim footer,
+  .theme-anim main,
+  .theme-anim .terminal,
+  .theme-anim .terminal-header,
+  .theme-anim [class*="bg-"],
+  .theme-anim [class*="border-"] {
+    transition:
+      background-color 0.4s var(--ease-out-soft),
+      border-color 0.4s var(--ease-out-soft),
+      color 0.4s var(--ease-out-soft) !important;
+  }
+}
+
+/* ===========================
+   COMPONENT PRIMITIVES
+=========================== */
+@layer components {
+  /* Pills / tags */
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 0.3rem 0.7rem;
+    background: var(--color-dunes);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-sharp);
+    color: var(--color-ink-2);
+    transition:
+      color 0.2s,
+      border-color 0.2s;
+  }
+
+  .tag:hover {
+    color: var(--color-clay);
+    border-color: color-mix(in srgb, var(--color-clay) 35%, transparent);
+  }
+
+  /* Charcoal terminal code block */
+  .terminal {
+    background: var(--color-charcoal);
+    border: 1px solid
+      color-mix(in srgb, var(--color-terminal-fg) 9%, transparent);
+    border-radius: var(--radius-sharp-lg);
+    overflow: hidden;
+    box-shadow: var(--panel-shadow);
+    color: var(--color-terminal-fg);
+  }
+
+  .terminal-header {
+    background: var(--color-charcoal-2);
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--color-terminal-fg) 7%, transparent);
+  }
+
+  /* Warm syntax palette */
+  .syn-kw {
+    color: #c678dd;
+  }
+  .syn-class {
+    color: #e5c07b;
+  }
+  .syn-str {
+    color: #e8956b;
+  }
+  .syn-val {
+    color: #a7c88f;
+  }
+  .syn-amber {
+    color: #d9a441;
+  }
+  .syn-pine {
+    color: #6fb79a;
+  }
+
+  /* State badges — live status feedback */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-sharp);
+    border: 1px solid transparent;
+  }
+
+  .pill-valid {
+    background: color-mix(in srgb, var(--color-pine) 15%, transparent);
+    border-color: color-mix(in srgb, var(--color-pine) 34%, transparent);
+    color: var(--color-pine);
+  }
+  .pill-build {
+    background: color-mix(in srgb, var(--color-amber) 15%, transparent);
+    border-color: color-mix(in srgb, var(--color-amber) 34%, transparent);
+    color: var(--color-amber);
+  }
+  .pill-run {
+    background: color-mix(in srgb, var(--color-clay) 15%, transparent);
+    border-color: color-mix(in srgb, var(--color-clay) 34%, transparent);
+    color: var(--color-clay);
+  }
+  .pill-fail {
+    background: color-mix(in srgb, var(--color-danger) 15%, transparent);
+    border-color: color-mix(in srgb, var(--color-danger) 34%, transparent);
+    color: var(--color-danger);
+  }
+
+  .pill::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  /* Warm hairline that separates alternating sections */
+  .rule-top {
+    position: relative;
+  }
+
+  .rule-top::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--color-clay) 24%, transparent),
+      transparent
+    );
+  }
+
+  /* Hero background layers. Pointer parallax writes --px/--py on the section. */
+  .hero-grid {
+    position: absolute;
+    inset: -40px;
+    pointer-events: none;
+    background-image: linear-gradient(var(--hero-grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hero-grid-line) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: translate3d(calc(var(--px, 0) * 6px), calc(var(--py, 0) * 6px), 0);
+    mask-image: radial-gradient(
+      ellipse 80% 80% at 50% 50%,
+      black 40%,
+      transparent 100%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 80% 80% at 50% 50%,
+      black 40%,
+      transparent 100%
+    );
+  }
+
+  .hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+  }
+
+  .glow-warm {
+    width: 600px;
+    height: 600px;
+    top: -100px;
+    left: -100px;
+    background: radial-gradient(circle, var(--glow-clay) 0%, transparent 70%);
+    transform: translate3d(calc(var(--px, 0) * 18px), calc(var(--py, 0) * 18px), 0);
+  }
+
+  .glow-amber {
+    width: 500px;
+    height: 500px;
+    bottom: -100px;
+    right: -100px;
+    background: radial-gradient(circle, var(--glow-amber) 0%, transparent 70%);
+    transform: translate3d(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -14px), 0);
+    animation-direction: reverse;
+  }
+}
+
+/* ===========================
+   SCROLL REVEAL
+   The hidden state is gated behind `.reveal-on` on <html>, which the hook
+   adds only when motion is allowed and IntersectionObserver exists — so a
+   JS failure can never leave content invisible.
+=========================== */
+.reveal {
+  transition:
+    opacity 0.7s var(--ease-out-soft),
+    transform 0.7s var(--ease-out-soft);
+}
+
+.reveal-on .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: opacity, transform;
+}
+
+.reveal-on .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Directional reveal variants */
+.reveal-on .reveal-fade {
+  transform: none;
+}
+.reveal-on .reveal-left {
+  transform: translateX(-32px);
+}
+.reveal-on .reveal-right {
+  transform: translateX(32px);
+}
+.reveal-on .reveal-rise {
+  transform: translateY(48px);
+}
+
+/* ===========================
+   EDITORIAL TYPE & BLOCKS
+   warm paper, bold scale
+=========================== */
+.display-hero {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3.4rem, 15.5vw, 12.5rem);
+  line-height: 0.84;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+.display-xl {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 7vw, 5rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 5vw, 3.6rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.outline-ink,
+.outline-clay {
+  color: transparent;
+  -webkit-text-stroke-width: max(1px, var(--outline-stroke));
+  -webkit-text-stroke-color: var(--color-ink);
+}
+
+.outline-clay {
+  -webkit-text-stroke-color: var(--color-clay);
+}
+
+/* Diagonal cross-out over a display word */
+.crossed {
+  position: relative;
+  display: inline-block;
+}
+
+.crossed::before {
+  content: "";
+  position: absolute;
+  left: -3%;
+  right: -3%;
+  top: 54%;
+  height: max(2px, 0.3vw);
+  background: var(--color-clay);
+  transform: rotate(-5deg);
+  pointer-events: none;
+}
+
+/* Full-bleed band that escapes a padded container */
+.bleed-x {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: max(1.5rem, calc(50vw - 50%));
+  padding-right: max(1.5rem, calc(50vw - 50%));
+}
+
+/* Marquee strip */
+.marquee {
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Paused while the project filter row has keyboard focus */
+.marquee.is-paused .marquee-track,
+body:has(.filter-bar:focus-within) .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Fine paper grain */
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* One visible focus treatment for every interactive element */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-clay);
+  outline-offset: 3px;
+}
+
+/* Row preview: collapsed grid row that expands on hover or keyboard focus */
+.preview-row {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s var(--ease-out-soft);
+}
+
+.group:hover .preview-row,
+.group:focus-within .preview-row,
+.preview-row.is-open {
+  grid-template-rows: 1fr;
+}
+
+.preview-row > div {
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-out-soft);
+}
+
+.group:hover .preview-row > div,
+.group:focus-within .preview-row > div,
+.preview-row.is-open > div {
+  opacity: 1;
+}
+
+/* Touch widths have no hover, so the detail is simply part of the row */
+@media (width < 768px) {
+  .preview-row {
+    grid-template-rows: 1fr;
+  }
+  .preview-row > div {
+    opacity: 1;
+  }
+}
+
+/* ===========================
+   KEYFRAMES
+=========================== */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* floatGlow animates `translate` (not `transform`) so the pointer parallax
+   can own transform on the same element without being overridden */
+@keyframes floatGlow {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 30px 30px;
+  }
+}
+
+@keyframes scrollDrop {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+.animate-pulse-dot {
+  animation: pulseDot 2s ease-in-out infinite;
+}
+.animate-float-glow {
+  animation: floatGlow 9s ease-in-out infinite;
+}
+.animate-scroll-drop {
+  animation: scrollDrop 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+  .animate-blink,
+  .animate-pulse-dot,
+  .animate-float-glow,
+  .animate-scroll-drop {
+    animation: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  /* The drift is decorative, but hiding it must not hide the words: without
+     motion the strip becomes a wrapped outline set, single copy. */
+  .marquee {
+    overflow: visible;
+  }
+  .marquee-track {
+    width: auto;
+    flex-wrap: wrap;
+    row-gap: 0.15rem;
+  }
+  .marquee-track > div {
+    /* let the words wrap against the strip width instead of sizing to
+       max-content as a flex item */
+    display: contents;
+  }
+  .marquee-track > div[aria-hidden="true"] {
+    display: none;
+  }
+  .marquee .display-xl {
+    font-size: clamp(1.15rem, 4.6vw, 2.6rem);
+  }
+  .preview-row {
+    transition: none;
+  }
+  .hero-grid,
+  .glow-warm,
+  .glow-amber {
+    transform: none !important;
+  }
+}

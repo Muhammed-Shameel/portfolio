@@ -1,364 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muhammed Shameel — Junior Data Scientist, ML & AI Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo">MS<span class="dot">.</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="Muhammed_Shameel_Resume.pdf" download class="nav-cta">Resume <i class="fa fa-download"></i></a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-noise"></div>
-    <div class="hero-glow glow-1"></div>
-    <div class="hero-glow glow-2"></div>
-    <div class="hero-content">
-      <div class="hero-badge reveal">
-        <span class="badge-dot"></span>
-        Available for new opportunities
-      </div>
-      <h1 class="hero-name reveal">
-        <span class="line">Muhammed</span>
-        <span class="line accent-stroke">Shameel</span>
-      </h1>
-      <p class="hero-title reveal">
-        <span class="typed-wrap">
-          <span class="typed" id="typedText"></span>
-          <span class="typed-cursor">|</span>
-        </span>
-      </p>
-      <p class="hero-subtitle reveal">
-        Junior Data Scientist, Junior Machine Learning Engineer, and Junior AI Engineer. MSc graduate building end-to-end ML solutions, RAG applications, and AI systems.
-      </p>
-      <div class="hero-actions reveal">
-        <a href="#projects" class="btn btn-primary">
-          <i class="fa fa-folder-open"></i> View Projects
-        </a>
-        <a href="#contact" class="btn btn-secondary">
-          <i class="fa fa-paper-plane"></i> Contact Me
-        </a>
-        <a href="Muhammed_Shameel_Resume.pdf" download class="btn btn-ghost">
-          <i class="fa fa-download"></i> Resume
-        </a>
-        <a href="https://github.com/Muhammed-Shameel" target="_blank" class="btn btn-icon" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
-    </div>
-    <div class="hero-scroll-indicator">
-      <span>scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section about-section" id="about">
-    <div class="container">
-      <div class="section-label reveal">// about me</div>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <h2 class="section-heading">Turning data into<br><em>intelligent decisions</em></h2>
-          <p class="about-body">
-            MSc Data Science and Business Analytics graduate with a Mathematics background and hands-on experience in Machine Learning, Retrieval-Augmented Generation (RAG), and AI-powered application development. I am passionate about building scalable, end-to-end AI systems that solve real-world problems.
-          </p>
-        </div>
-        <div class="about-visual reveal">
-          <div class="terminal-card">
-            <div class="terminal-header">
-              <span class="t-dot red"></span>
-              <span class="t-dot yellow"></span>
-              <span class="t-dot green"></span>
-              <span class="t-title">profile.py</span>
-            </div>
-            <div class="terminal-body">
-              <div class="t-line"><span class="t-kw">class</span> <span class="t-class">Shameel</span>:</div>
-              <div class="t-line t-indent"><span class="t-str">name</span> = <span class="t-val">"Muhammed Shameel"</span></div>
-              <div class="t-line t-indent"><span class="t-str">degree</span> = <span class="t-val">"MSc Data Science"</span></div>
-              <div class="t-line t-indent"><span class="t-str">role</span> = <span class="t-val">"AI Engineer"</span></div>
-              <div class="t-line t-indent"><span class="t-str">focus</span> = [</div>
-              <div class="t-line t-indent2"><span class="t-val">"Machine Learning"</span>,</div>
-              <div class="t-line t-indent2"><span class="t-val">"Deep Learning"</span>,</div>
-              <div class="t-line t-indent2"><span class="t-val">"Generative AI"</span>,</div>
-              <div class="t-line t-indent2"><span class="t-val">"Backend APIs"</span>,</div>
-              <div class="t-line t-indent2"><span class="t-val">"Data Engineering"</span></div>
-              <div class="t-line t-indent">]</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="section experience-section" id="experience">
-    <div class="container">
-      <div class="section-label reveal">// experience</div>
-      <h2 class="section-heading reveal">Professional <em>Journey</em></h2>
-      <div class="experience-list">
-
-        <div class="exp-card reveal">
-          <div class="exp-top">
-            <div>
-              <h3 class="exp-role">Agentic AI Intern</h3>
-              <p class="exp-org">InfoCreon Solutions Private Limited</p>
-            </div>
-            <div class="exp-meta">
-              <span class="exp-period">July 2026 – Present</span>
-              <span class="exp-loc"><i class="fa fa-location-dot"></i> Kerala, India</span>
-            </div>
-          </div>
-          <ul class="exp-bullets">
-            <li>Training in AI agents and multi-agent systems</li>
-            <li>LLM applications development</li>
-            <li>Workflow automation</li>
-            <li>Real-world AI solution development</li>
-          </ul>
-        </div>
-
-        <div class="exp-card reveal">
-          <div class="exp-top">
-            <div>
-              <h3 class="exp-role">Cloud & Data Visualization Engineering Intern</h3>
-              <p class="exp-org">InfoCreon Solutions Private Limited</p>
-            </div>
-            <div class="exp-meta">
-              <span class="exp-period">May 2026 – July 2026</span>
-              <span class="exp-loc"><i class="fa fa-location-dot"></i> Kerala, India</span>
-            </div>
-          </div>
-          <ul class="exp-bullets">
-            <li>Developed AI-driven software solutions</li>
-            <li>Built backend services using Python and FastAPI</li>
-            <li>Data preprocessing and feature engineering</li>
-            <li>Statistical analysis and model evaluation</li>
-            <li>Cloud deployment (Docker, Git, Render, Vercel)</li>
-          </ul>
-        </div>
-
-        <div class="exp-card reveal">
-          <div class="exp-top">
-            <div>
-              <h3 class="exp-role">Mathematics Tutor</h3>
-              <p class="exp-org">Self-employed</p>
-            </div>
-            <div class="exp-meta">
-              <span class="exp-period">July 2023 – March 2024</span>
-            </div>
-          </div>
-          <ul class="exp-bullets">
-            <li>Delivered one-to-one mathematics tutoring</li>
-            <li>Helped undergraduate and high-school students improve academic performance</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section skills-section" id="skills">
-    <div class="container">
-      <div class="section-label reveal">// skills</div>
-      <h2 class="section-heading reveal">Technical <em>Arsenal</em></h2>
-      <div class="skills-grid">
-        <div class="skill-card reveal">
-          <h3>Programming</h3>
-          <p>Python, SQL, SAS</p>
-        </div>
-        <div class="skill-card reveal">
-          <h3>ML & AI</h3>
-          <p>Scikit-learn, TensorFlow, Keras, PyTorch, XGBoost, Random Forest, SVM, Deep Learning, CNN, RNN, Neural Networks, Model Evaluation, Hyperparameter Tuning, RAG, Prompt Engineering</p>
-        </div>
-        <div class="skill-card reveal">
-          <h3>Data Engineering</h3>
-          <p>Data Cleaning, Data Preprocessing, Feature Engineering, EDA, Semantic Chunking, Embedding Generation, Metadata Extraction, Vector Databases</p>
-        </div>
-        <div class="skill-card reveal">
-          <h3>Backend & Cloud</h3>
-          <p>FastAPI, REST APIs, JSON, Docker, Git, GitHub, Render, Vercel, AWS Fundamentals</p>
-        </div>
-        <div class="skill-card reveal">
-          <h3>Visualization & Tools</h3>
-          <p>Tableau, Matplotlib, Seaborn, SPSS, Jupyter Notebook, VS Code, SAS Enterprise Miner</p>
-        </div>
-        <div class="skill-card reveal">
-          <h3>Statistical Analysis</h3>
-          <p>Hypothesis Testing, Regression Analysis, ANOVA, Correlation Analysis, Factor Analysis</p>
-        </div>
-        <div class="skill-card reveal">
-          <h3>Mathematical Foundations</h3>
-          <p>Linear Algebra, Probability & Statistics, Calculus, Optimization</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section projects-section" id="projects">
-    <div class="container">
-      <div class="section-label reveal">// projects</div>
-      <h2 class="section-heading reveal">Featured <em>Work</em></h2>
-      <div class="projects-grid">
-        <a href="https://github.com/Muhammed-Shameel/Grocery-AI" target="_blank" class="project-card reveal">
-          <div class="project-top">
-            <h3 class="project-title">Grocery AI</h3>
-            <i class="fab fa-github"></i>
-          </div>
-          <p class="project-desc">Advanced RAG assistant for grocery storage.</p>
-        </a>
-        <a href="https://flood-analysis-dashboard.vercel.app" target="_blank" class="project-card reveal">
-          <div class="project-top">
-            <h3 class="project-title">FLUVIO</h3>
-            <div>
-              <i class="fab fa-github" onclick="window.open('https://github.com/Muhammed-Shameel/Flood-Intelligence-Dashboard', '_blank'); return false;"></i>
-              <i class="fa fa-external-link-alt"></i>
-            </div>
-          </div>
-          <p class="project-desc">AI-powered flood intelligence dashboard.</p>
-        </a>
-        <a href="https://github.com/Muhammed-Shameel/football-player-analysis" target="_blank" class="project-card reveal">
-          <div class="project-top">
-            <h3 class="project-title">Football Analysis</h3>
-            <i class="fab fa-github"></i>
-          </div>
-          <p class="project-desc">ML analysis of Premier League players.</p>
-        </a>
-        <a href="https://github.com/Muhammed-Shameel/CSIRO-Biomass-Prediction-using-Machine-Learning" target="_blank" class="project-card reveal">
-          <div class="project-top">
-            <h3 class="project-title">CSIRO Biomass</h3>
-            <i class="fab fa-github"></i>
-          </div>
-          <p class="project-desc">Machine Learning regression project for biomass prediction.</p>
-        </a>
-        <a href="https://github.com/Muhammed-Shameel/brazil_ecommerce-data_analysis" target="_blank" class="project-card reveal">
-          <div class="project-top">
-            <h3 class="project-title">Brazil E-commerce Analytics</h3>
-            <i class="fab fa-github"></i>
-          </div>
-          <p class="project-desc">End-to-end analytics platform built on MySQL and Python.</p>
-        </a>
-        <a href="https://github.com/Muhammed-Shameel/AI-Planner" target="_blank" class="project-card reveal">
-          <div class="project-top">
-            <h3 class="project-title">Planner AI</h3>
-            <i class="fab fa-github"></i>
-          </div>
-          <p class="project-desc">AI-powered intelligent study planning application.</p>
-        </a>
-        <a href="https://github.com/Muhammed-Shameel/POC-68--Cyber-Incident-Disclosure-Tracker-Muhammed-Shameel-Phase2" target="_blank" class="project-card reveal">
-          <div class="project-top">
-            <h3 class="project-title">Cyber Incident Tracker</h3>
-            <i class="fab fa-github"></i>
-          </div>
-          <p class="project-desc">Cybersecurity intelligence dashboard for SEC EDGAR disclosures.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ACHIEVEMENTS & CERTIFICATES -->
-  <section class="section achievements-section" id="achievements">
-    <div class="container">
-      <h2 class="section-heading reveal">Achievements & <em>Certificates</em></h2>
-      <div class="achievements-content">
-        <p><strong>Kanz AI Training Hackathon:</strong> AI Showcase Featured Project.</p>
-        <p><strong>Certificates:</strong> SAS Professional, TIBCO Professional, SAS–APU Joint Certificate in Data Science, Kanz AI Training Hackathon Completion.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- INTERESTS & LANGUAGES -->
-  <section class="section interests-section" id="interests">
-    <div class="container">
-      <h2 class="section-heading reveal">Interests & <em>Languages</em></h2>
-      <p><strong>Interests:</strong> Machine Learning, AI, Data Engineering, NLP, Computer Vision, Math, Statistics.</p>
-      <p><strong>Languages:</strong> English, Malayalam, Arabic.</p>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section class="section education-section" id="education">
-    <div class="container">
-      <div class="section-label reveal">// education</div>
-      <h2 class="section-heading reveal">Academic <em>Journey</em></h2>
-      <div class="education-timeline">
-        <div class="edu-item reveal">
-          <div class="edu-icon"><i class="fa fa-graduation-cap"></i></div>
-          <div class="edu-content">
-            <div class="edu-tag">Postgraduate · Graduated March 2026</div>
-            <h3>MSc Data Science and Business Analytics</h3>
-            <p class="edu-inst">Asia Pacific University of Technology & Innovation (Malaysia)</p>
-            <p class="edu-meta">GPA: 3.62</p>
-          </div>
-        </div>
-        <div class="edu-connector"></div>
-        <div class="edu-item reveal">
-          <div class="edu-icon"><i class="fa fa-book"></i></div>
-          <div class="edu-content">
-            <div class="edu-tag">Undergraduate · Graduated April 2024</div>
-            <h3>BSc Mathematics</h3>
-            <p class="edu-inst">Kottakkal Farook Arts and Science College, University of Calicut</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section contact-section" id="contact">
-    <div class="container">
-      <div class="section-label reveal">// contact</div>
-      <h2 class="section-heading reveal">Let's <em>Connect</em></h2>
-      <div class="contact-grid">
-        <a href="mailto:muhammedshameel3009@gmail.com" class="contact-card reveal">
-          <div class="contact-icon"><i class="fa fa-envelope"></i></div>
-          <div class="contact-info">
-            <span class="contact-label">Email</span>
-            <span class="contact-val">muhammedshameel3009@gmail.com</span>
-          </div>
-        </a>
-        <a href="https://linkedin.com/in/muhammed-shameel" target="_blank" class="contact-card reveal">
-          <div class="contact-icon linkedin"><i class="fab fa-linkedin-in"></i></div>
-          <div class="contact-info">
-            <span class="contact-label">LinkedIn</span>
-            <span class="contact-val">muhammed-shameel</span>
-          </div>
-        </a>
-        <a href="https://github.com/Muhammed-Shameel" target="_blank" class="contact-card reveal">
-          <div class="contact-icon github"><i class="fab fa-github"></i></div>
-          <div class="contact-info">
-            <span class="contact-label">GitHub</span>
-            <span class="contact-val">Muhammed-Shameel</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <script src="script.js"></script>
-</body>
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#131210" />
+    <title>Muhammed Shameel — Junior Data Scientist, ML &amp; AI Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Muhammed Shameel — Junior Data Scientist, Machine Learning and AI Engineer building end-to-end ML solutions, RAG applications and AI systems."
+    />
+    <script>
+      /* Set the theme before the first paint so there is no flash.
+         Dark is the default; an explicit choice is remembered. */
+      ;(function () {
+        var COLORS = { dark: "#131210", light: "#F6F3ED" }
+        var theme = "dark"
+        try {
+          if (localStorage.getItem("portfolio-theme") === "light") theme = "light"
+        } catch (e) {}
+        document.documentElement.classList.toggle(
+          "dark",
+          theme === "dark",
+        )
+        var meta = document.querySelector('meta[name="theme-color"]')
+        if (!meta) {
+          meta = document.createElement("meta")
+          meta.name = "theme-color"
+          document.head.appendChild(meta)
+        }
+        meta.setAttribute("content", COLORS[theme])
+      })()
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
