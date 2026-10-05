@@ -58,7 +58,7 @@ export default function Footer() {
         </Reveal>
 
         {/* bottom bar */}
-        <div className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-hairline pt-8 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-ink-4">
+        <div className="mt-14 flex flex-wrap items-center justify-between gap-6 border-t border-hairline pt-8 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-ink-3">
           <p>
             © {year} {profile.firstName} {profile.lastName} — All rights reserved
           </p>

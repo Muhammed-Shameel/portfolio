@@ -45,7 +45,7 @@ export default function Projects() {
               }`}
             >
               {category}
-              <span className={isOn ? "text-clay" : "text-ink-4"}>
+              <span className={isOn ? "text-clay" : "text-ink-3"}>
                 {" "}
                 ({counts[category]})
               </span>
@@ -60,7 +60,7 @@ export default function Projects() {
         })}
 
         <span className="ml-auto flex items-center gap-5 font-mono text-[0.7rem] uppercase tracking-[0.16em]">
-          <span aria-live="polite" className="text-ink-4">
+          <span aria-live="polite" className="text-ink-3">
             Showing {rows.length} of {projects.length}
           </span>
           {filter !== "All" && (
@@ -118,7 +118,7 @@ export default function Projects() {
                   <span className={`pill pill-${project.status}`}>
                     {project.statusLabel}
                   </span>
-                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-ink-4">
+                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-ink-3">
                     {project.categories.join(" · ")} — {project.period}
                   </p>
                 </div>
@@ -132,7 +132,7 @@ export default function Projects() {
                       </p>
 
                       <div className="md:col-span-4">
-                        <span className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-ink-4">
+                        <span className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-ink-3">
                           Stack
                         </span>
                         <ul className="mt-2.5 flex flex-wrap gap-2">
@@ -154,7 +154,7 @@ export default function Projects() {
                             target="_blank"
                             rel="noreferrer"
                             data-cursor="LIVE"
-                            className="focus-ring inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-clay hover:text-clay-bright"
+                            className="focus-ring inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-clay hover:text-clay-dark"
                           >
                             <i className="fa fa-arrow-up-right-from-square" aria-hidden="true" />
                             Live

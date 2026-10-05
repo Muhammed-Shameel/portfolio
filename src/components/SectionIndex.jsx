@@ -1,21 +1,35 @@
 import { sectionIds } from "../data/portfolio"
-import { useActiveSection } from "../hooks/useScrollProgress"
+import {
+  useActiveSection,
+  useScrollProgress,
+} from "../hooks/useScrollProgress"
 
 /**
- * Right-edge section spine: one dot per anchored section, with mono labels once
- * the viewport is wide enough (2xl) that they land in the gutter instead of on
- * top of the content. Desktop-only, pointer fine.
+ * Right-edge section spine: one dot per anchored section over a scroll-linked
+ * hairline, with mono labels once the viewport is wide enough (2xl) that they
+ * land in the gutter instead of on top of the content. Desktop-only, pointer fine.
  */
 export default function SectionIndex() {
   const ids = sectionIds.map((s) => s.id)
   const active = useActiveSection(ids)
+  const progress = useScrollProgress()
 
   return (
     <nav
       aria-label="Section navigation"
-      className="pointer-events-none fixed right-7 top-1/2 z-40 hidden -translate-y-1/2 xl:block"
+      className={`pointer-events-none fixed right-7 top-1/2 z-40 hidden -translate-y-1/2 transition-opacity duration-700 xl:block ${
+        progress > 0.02 ? "opacity-100" : "opacity-0"
+      }`}
     >
-      <ul className="flex flex-col gap-4">
+      {/* hairline rail; the clay fill tracks how far down the page we are */}
+      <span
+        aria-hidden="true"
+        className="spine-track"
+        style={{ "--spine-progress": progress }}
+      >
+        <span className="spine-fill" />
+      </span>
+      <ul className="relative flex flex-col gap-4">
         {sectionIds.map(({ id, label }) => {
           const isCurrent = active === id
           return (
@@ -35,9 +49,9 @@ export default function SectionIndex() {
                   {label}
                 </span>
                 <span
-                  className={`block rounded-full border transition-all duration-300 ${
+                  className={`spine-dot block rounded-full border transition-all duration-300 ${
                     isCurrent
-                      ? "h-2.5 w-2.5 border-clay bg-clay"
+                      ? "spine-dot-active h-2.5 w-2.5 border-clay bg-clay"
                       : "h-1.5 w-1.5 border-hairline-strong bg-transparent group-hover:border-clay"
                   }`}
                 />

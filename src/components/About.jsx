@@ -65,6 +65,11 @@ export default function About() {
                 ))}
               </span>
             ))}
+            {/* prompt + caret: the block reads as a running file, not an image */}
+            <span className="block text-terminal-meta">
+              <span className="syn-pine">&gt;&gt;&gt;</span>{" "}
+              <span className="animate-blink">&#9613;</span>
+            </span>
           </div>
         </Reveal>
 

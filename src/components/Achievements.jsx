@@ -44,7 +44,7 @@ export default function Achievements() {
               <span className="flex-1 text-[0.95rem] font-medium text-ink transition-colors group-hover:text-clay md:text-[1.05rem]">
                 {cert}
               </span>
-              <span className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-ink-4">
+              <span className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-ink-3">
                 Certified
               </span>
             </Reveal>

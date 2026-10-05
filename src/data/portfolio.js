@@ -3,40 +3,42 @@ export const profile = {
   lastName: "Shameel",
   display: "Shameel",
   initials: "MS",
-  role: "Data Scientist & ML Engineer",
+  role: "Data Scientist & AI Engineer",
   typedRoles: [
-    "Junior Data Scientist",
-    "Junior Machine Learning Engineer",
-    "Junior AI Engineer",
-    "RAG & LLM Application Builder",
+    "Data Scientist",
+    "AI Engineer",
+    "Machine Learning Engineer",
+    "Agentic AI & RAG Builder",
   ],
+  /* Canonical short positioning — mirrored in index.html metadata */
   summary:
-    "Data Scientist and MSc graduate in Data Science and Business Analytics with a BSc in Mathematics, specialising in machine learning, RAG applications and FastAPI development. Hands-on experience building predictive models, end-to-end data processing pipelines and API services — from cleaning and feature engineering through honest model evaluation to containerised deployment with Docker on Vercel, Render and AWS.",
-  heroBio:
-    "I work end to end — pulling and cleaning the data, engineering features, evaluating the model honestly, then wrapping it in a FastAPI service and a dashboard someone can actually use. Most of my work right now is retrieval-augmented: chunking documents, generating embeddings and wiring vector search so a language model answers from your data instead of guessing.",
+    "Data Scientist and AI Engineer with a foundation in Mathematics and Data Science. I build end-to-end machine learning, RAG and agentic AI systems, from data and evaluation to APIs and deployable applications.",
   about:
-    "Data Scientist and MSc graduate in Data Science and Business Analytics with a BSc in Mathematics, specialising in machine learning, RAG applications and FastAPI development. Hands-on experience building predictive models, data processing pipelines and API services deployed with Docker and cloud platforms — and in explaining what each layer does rather than only running it.",
+    "Data Scientist and AI Engineer. BSc in Mathematics, MSc in Data Science & Business Analytics specialising in Data Engineering, with applied work across machine learning, deep learning, RAG and agentic AI. I build the systems around the model — data quality, features and honest evaluation, retrieval and orchestration, then the FastAPI service and the interface on top — and take the work as far as a Dockerised, deployed build rather than leaving it in a notebook.",
+  heroBio:
+    "I work on the layers around the model — data quality, features and honest evaluation, then the retrieval pipeline, the API and the interface that make a result usable. Most of my recent work is agentic: LangGraph workflows, embeddings and document processing, and LLM applications grounded in the right context before they answer.",
   resumePath: "/Muhammed_Shameel_Resume.pdf",
   availability: "Available for new opportunities",
 }
 
 export const statement = {
-  lead: "Models are not the first layer — they are the whole building. I work from the statistics underneath to the API and dashboard on top: cleaning, features and evaluation as carefully as the interface that makes a result usable.",
-  body: "I came at data sideways — a Mathematics degree and two years teaching it, which is where I learned to explain a method rather than just run it. Since then: an MSc in Data Science, an agentic-AI internship, and a stack of projects that each ended in something deployed rather than something filed away.",
+  lead: "I came to data science through mathematics. My BSc gave me the statistics and the analytical habits I still lean on, and teaching mathematics is where I learned to understand a method well enough to explain it — not simply run it. That led into an MSc in Data Science & Business Analytics, specialising in Data Engineering, and into applied work across machine learning, deep learning, RAG and agentic AI.",
+  body: "I build the systems around a model, not only the model: cleaning and structuring data, engineering features, evaluating honestly, then the retrieval pipeline, the API and the interface that make the result usable. For AI applications that means grounding before generation — getting the right data, documents and context into the system before asking a language model for an answer.",
+  contact: "I am after work where data quality, model evaluation and orchestration are all taken seriously. If you have a dataset nobody has finished with, or a RAG system that keeps hallucinating, I would like to hear about it.",
 }
 
 export const stats = [
   { value: 8, label: "Projects shipped", note: "RAG · agents · ML · dashboards" },
   { value: 2, label: "Internships", note: "Agentic AI & cloud data" },
   { value: 4, label: "Certifications", note: "SAS · TIBCO · Kanz AI" },
-  { value: 3, label: "Languages", note: "EN · ML · AR" },
+  { value: 2, label: "Languages", note: "EN · ML" },
 ]
 
 /* Three short paragraphs under the statement band */
 export const bandParagraphs = [
-  "Data Scientist and MSc Data Science and Business Analytics graduate with a BSc in Mathematics — machine learning, RAG applications and FastAPI services, built end to end.",
-  "I care about the unglamorous half — cleaning, chunking, embedding, evaluating — because a model that cannot be measured honestly is not a model worth shipping.",
-  "Everything ends somewhere deployable: a FastAPI service, a Docker image, a Render or Vercel build, a dashboard a non-specialist can read without help.",
+  "The path so far runs from mathematics and statistics into data science, machine learning and deep learning, then on through RAG and agentic AI to deployment. Recent work sits in orchestration and grounded LLM applications, built on the data science underneath.",
+  "I care about the less visible parts of the work — data quality, cleaning, feature engineering, evaluation, failure cases, reproducibility — because they decide whether a result can be trusted.",
+  "Whenever practical, work ends somewhere usable: a FastAPI service, a Docker image, a deployed build, or a React or Next.js interface someone else can open and read.",
 ]
 
 export const socials = {
@@ -70,14 +72,16 @@ export const sectionIds = [
 export const terminalProfile = [
   { indent: 0, tokens: [["kw", "class"], ["plain", " "], ["class", "Shameel"], ["plain", ":"]] },
   { indent: 1, tokens: [["str", "name"], ["plain", " = "], ["val", '"Muhammed Shameel"']] },
+  { indent: 1, tokens: [["str", "background"], ["plain", " = "], ["val", '"BSc Mathematics"']] },
   { indent: 1, tokens: [["str", "degree"], ["plain", " = "], ["val", '"MSc Data Science"']] },
-  { indent: 1, tokens: [["str", "role"], ["plain", " = "], ["val", '"AI Engineer"']] },
+  { indent: 1, tokens: [["str", "specialism"], ["plain", " = "], ["val", '"Data Engineering"']] },
+  { indent: 1, tokens: [["str", "role"], ["plain", " = "], ["val", '"Data Scientist & AI Engineer"']] },
   { indent: 1, tokens: [["str", "focus"], ["plain", " = ["]] },
   { indent: 2, tokens: [["val", '"Machine Learning",']] },
-  { indent: 2, tokens: [["val", '"RAG & LLM Systems",']] },
+  { indent: 2, tokens: [["val", '"Deep Learning",']] },
+  { indent: 2, tokens: [["val", '"RAG & Embeddings",']] },
   { indent: 2, tokens: [["val", '"Agentic Workflows",']] },
-  { indent: 2, tokens: [["val", '"Backend APIs",']] },
-  { indent: 2, tokens: [["val", '"Data Pipelines"']] },
+  { indent: 2, tokens: [["val", '"FastAPI Services"']] },
   { indent: 1, tokens: [["plain", "]"]] },
 ]
 
@@ -333,7 +337,7 @@ export const interestsExtra = [
   },
 ]
 
-export const languages = ["English", "Malayalam", "Arabic"]
+export const languages = ["English", "Malayalam"]
 
 /* Words for the paper marquee strip */
 export const marqueeWords = [

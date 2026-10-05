@@ -73,7 +73,7 @@ export default function Experience() {
                 </ul>
 
                 {exp.location && (
-                  <p className="mt-4 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-ink-4">
+                  <p className="mt-4 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-ink-3">
                     <i className="fa fa-location-dot mr-2" aria-hidden="true" />
                     {exp.location}
                   </p>

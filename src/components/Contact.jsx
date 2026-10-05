@@ -46,9 +46,7 @@ export default function Contact() {
           delay={2}
           className="mt-10 max-w-[560px] text-[0.92rem] leading-[1.9] text-ink-3"
         >
-          {statement.lead.split(". ")[0]}. If you have a dataset that nobody has
-          finished with, or a RAG system that keeps hallucinating, I would like
-          to hear about it.
+          {statement.contact}
         </Reveal>
 
         {/* direct actions — the CTA is not the only thing to click here */}

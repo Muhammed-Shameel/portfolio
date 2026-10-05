@@ -11,18 +11,19 @@
   --color-dunes: #e8e1d4;
   --color-card: #fffdf7;
 
-  /* Ink text scale */
+  /* Ink text scale — measured against #F6F3ED: ink 14:1, ink-2 10:1,
+     ink-3 5.5:1, ink-4 4.1:1 (ink-4 carries only large or decorative marks) */
   --color-ink: #26241e;
-  --color-ink-2: #45413a;
-  --color-ink-3: #7a7263;
-  --color-ink-4: #a79e8e;
+  --color-ink-2: #3f3b34;
+  --color-ink-3: #6a6250;
+  --color-ink-4: #7e7566;
 
-  /* Accents */
-  --color-clay: #c4581f;
+  /* Accents — clay/pine/amber sit at or above 4.5:1 as small mono text */
+  --color-clay: #b7511d;
   --color-clay-bright: #d97742;
-  --color-clay-dark: #a8481a;
-  --color-pine: #2a6f5f;
-  --color-amber: #b7791f;
+  --color-clay-dark: #9e4517;
+  --color-pine: #266658;
+  --color-amber: #9e6414;
   --color-slateish: #4a5568;
 
   /* Charcoal code block */
@@ -30,11 +31,11 @@
   --color-charcoal-2: #1c1a15;
 
   /* Warm hairlines & soft accent washes */
-  --color-hairline: rgb(38 36 30 / 0.1);
-  --color-hairline-strong: rgb(38 36 30 / 0.22);
-  --color-clay-soft: rgb(196 88 31 / 0.1);
-  --color-clay-soft-strong: rgb(196 88 31 / 0.18);
-  --color-clay-line: rgb(196 88 31 / 0.25);
+  --color-hairline: rgb(38 36 30 / 0.12);
+  --color-hairline-strong: rgb(38 36 30 / 0.24);
+  --color-clay-soft: rgb(183 81 29 / 0.1);
+  --color-clay-soft-strong: rgb(183 81 29 / 0.18);
+  --color-clay-line: rgb(183 81 29 / 0.28);
 
   /* Typography */
   --font-display: "Space Grotesk", sans-serif;
@@ -55,9 +56,9 @@
   --panel-shadow: 0 24px 64px rgb(38 36 30 / 0.22);
   --grain-opacity: 0.035;
   --outline-stroke: 0.28vw;
-  --hero-grid-line: rgb(196 88 31 / 0.05);
-  --glow-clay: rgb(196 88 31 / 0.1);
-  --glow-amber: rgb(183 121 31 / 0.09);
+  --hero-grid-line: rgb(183 81 29 / 0.05);
+  --glow-clay: rgb(183 81 29 / 0.1);
+  --glow-amber: rgb(158 100 20 / 0.09);
   --cursor-ring: rgb(38 36 30 / 0.3);
   --theme-color: #f6f3ed;
 }
@@ -73,25 +74,27 @@
 html.dark {
   color-scheme: dark;
 
-  /* Backgrounds */
+  /* Backgrounds — band separation widened slightly so the flip reads as depth */
   --color-paper: #131210;
-  --color-paper-2: #191712;
-  --color-dunes: #262219;
+  --color-paper-2: #1b1913;
+  --color-dunes: #2a251b;
   --color-card: #1c1a15;
 
-  /* Ink text scale */
+  /* Ink text scale — every step clears 4.5:1 on #131210 */
   --color-ink: #ede7da;
   --color-ink-2: #c9c1b1;
-  --color-ink-3: #9a9184;
-  --color-ink-4: #7b7261;
+  --color-ink-3: #a39b8d;
+  --color-ink-4: #8b8271;
 
-  /* Accents */
-  --color-clay: #e4703b;
-  --color-clay-bright: #f08f55;
-  --color-clay-dark: #c4581f;
-  --color-pine: #57b79b;
-  --color-amber: #dfa53f;
-  --color-slateish: #8fa0bc;
+  /* Accents — lifted so they glow evenly against the charcoal base.
+     clay-dark is the hover/emphasis counterpart: deeper on paper,
+     brighter on charcoal. */
+  --color-clay: #e87940;
+  --color-clay-bright: #f4a070;
+  --color-clay-dark: #f4a070;
+  --color-pine: #5fc0a3;
+  --color-amber: #e5b051;
+  --color-slateish: #9fb0ce;
 
   /* Charcoal code block — lifted above the page so it reads as a panel */
   --color-charcoal: #1c1a15;
@@ -100,17 +103,17 @@ html.dark {
   /* Warm hairlines & soft accent washes */
   --color-hairline: rgb(237 231 218 / 0.12);
   --color-hairline-strong: rgb(237 231 218 / 0.28);
-  --color-clay-soft: rgb(228 112 59 / 0.14);
-  --color-clay-soft-strong: rgb(228 112 59 / 0.22);
-  --color-clay-line: rgb(228 112 59 / 0.32);
+  --color-clay-soft: rgb(232 121 64 / 0.14);
+  --color-clay-soft-strong: rgb(232 121 64 / 0.22);
+  --color-clay-line: rgb(232 121 64 / 0.34);
 
   /* Effects */
   --panel-shadow: 0 24px 64px rgb(0 0 0 / 0.55);
   --grain-opacity: 0.05;
   --outline-stroke: 0.32vw;
-  --hero-grid-line: rgb(228 112 59 / 0.07);
-  --glow-clay: rgb(228 112 59 / 0.16);
-  --glow-amber: rgb(223 165 63 / 0.12);
+  --hero-grid-line: rgb(232 121 64 / 0.07);
+  --glow-clay: rgb(232 121 64 / 0.17);
+  --glow-amber: rgb(229 176 81 / 0.12);
   --cursor-ring: rgb(237 231 218 / 0.34);
   --theme-color: #131210;
 }
@@ -417,6 +420,7 @@ html.dark {
 .outline-ink,
 .outline-clay {
   color: transparent;
+  -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: max(1px, var(--outline-stroke));
   -webkit-text-stroke-color: var(--color-ink);
 }
@@ -440,7 +444,93 @@ html.dark {
   height: max(2px, 0.3vw);
   background: var(--color-clay);
   transform: rotate(-5deg);
+  transform-origin: left center;
   pointer-events: none;
+}
+
+/* The strike across the hero name draws itself once the line has revealed */
+.reveal-on .reveal.is-visible .crossed::before {
+  animation: strike 0.85s var(--ease-out-soft) 0.55s both;
+}
+
+/* ===========================
+   MICRO-MOTION
+   Hover, scroll and state flourishes. Everything here is decorative and is
+   switched off under prefers-reduced-motion below.
+=========================== */
+
+/* A giant outlined display line fills with clay when hovered */
+.outline-clay {
+  transition: -webkit-text-fill-color 0.6s var(--ease-out-soft);
+}
+
+.display-hero:hover .outline-clay,
+.display-hero:focus-within .outline-clay {
+  -webkit-text-fill-color: var(--color-clay);
+}
+
+/* Section spine rail: hairline with a clay fill that tracks scroll */
+.spine-track {
+  position: absolute;
+  top: -1rem;
+  bottom: -1rem;
+  right: 4px;
+  width: 1px;
+  overflow: hidden;
+  background: var(--color-hairline);
+}
+
+.spine-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(var(--spine-progress, 0) * 100%);
+  background: var(--color-clay);
+  transition: height 0.25s linear;
+}
+
+/* The dot owning the viewport breathes */
+.spine-dot {
+  position: relative;
+}
+
+.spine-dot-active::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-clay);
+  animation: dotPulse 2.6s var(--ease-out-soft) infinite;
+}
+
+/* Stat cells: a clay rule draws under the number, which warms to match */
+.stat-cell {
+  position: relative;
+}
+
+.stat-cell::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -0.5rem;
+  height: 2px;
+  background: var(--color-clay);
+  transition: right 0.55s var(--ease-out-soft);
+}
+
+.stat-cell:hover::after,
+.stat-cell:focus-within::after {
+  right: 0;
+}
+
+.stat-value {
+  transition: color 0.45s var(--ease-out-soft);
+}
+
+.stat-cell:hover .stat-value {
+  color: var(--color-clay);
 }
 
 /* Full-bleed band that escapes a padded container */
@@ -585,6 +675,27 @@ body:has(.filter-bar:focus-within) .marquee-track {
   }
 }
 
+@keyframes strike {
+  from {
+    transform: scaleX(0) rotate(-5deg);
+  }
+  to {
+    transform: scaleX(1) rotate(-5deg);
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.75;
+  }
+  70%,
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
 .animate-blink {
   animation: blink 1s step-end infinite;
 }
@@ -635,6 +746,18 @@ body:has(.filter-bar:focus-within) .marquee-track {
   .marquee .display-xl {
     font-size: clamp(1.15rem, 4.6vw, 2.6rem);
   }
+  /* Motion-driven flourishes settle straight into their end state */
+  .reveal-on .reveal.is-visible .crossed::before,
+  .spine-dot-active::after {
+    animation: none;
+  }
+  .spine-dot-active::after {
+    opacity: 0.35;
+  }
+  .outline-clay,
+  .stat-cell::after,
+  .stat-value,
+  .spine-fill,
   .preview-row {
     transition: none;
   }

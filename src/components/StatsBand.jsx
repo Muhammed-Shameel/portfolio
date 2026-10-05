@@ -71,14 +71,14 @@ export default function StatsBand() {
         {stats.map((stat, i) => (
           <div
             key={stat.label}
-            className={`px-2 md:px-8 ${
+            className={`stat-cell group px-2 md:px-8 ${
               i % 2 === 1 ? "border-l border-hairline" : ""
             } md:border-l md:first:border-l-0`}
           >
             <p className="mb-3 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ink-3">
               {String(i + 1).padStart(2, "0")}
             </p>
-            <p className="font-display text-[clamp(3rem,8vw,6.5rem)] font-bold leading-[0.85] tracking-[-0.05em] text-ink">
+            <p className="stat-value font-display text-[clamp(3rem,8vw,6.5rem)] font-bold leading-[0.85] tracking-[-0.05em] text-ink">
               <CountUp value={stat.value} start={inView} delay={i * 140} />
             </p>
             <p className="mt-5 text-[0.95rem] font-semibold text-ink">

@@ -16,7 +16,7 @@ export default function AboutBand() {
             delay={0}
             className="block text-ink"
           >
-            Working from
+            Grounding
           </Reveal>
           <Reveal
             as="span"
@@ -24,7 +24,7 @@ export default function AboutBand() {
             delay={1}
             className="outline-clay block"
           >
-            the data up
+            before
           </Reveal>
           <Reveal
             as="span"
@@ -32,7 +32,7 @@ export default function AboutBand() {
             delay={2}
             className="block text-ink"
           >
-            &amp; ship it
+            generation
           </Reveal>
         </div>
 
