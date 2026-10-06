@@ -28,9 +28,9 @@ export const statement = {
 }
 
 export const stats = [
-  { value: 8, label: "Projects shipped", note: "RAG · agents · ML · dashboards" },
-  { value: 2, label: "Internships", note: "Agentic AI & cloud data" },
-  { value: 4, label: "Certifications", note: "SAS · TIBCO · Kanz AI" },
+  { value: 9, label: "Projects shipped", note: "RAG · agents · ML · dashboards" },
+  { value: 3, label: "Internships", note: "Enterprise AI · agentic · cloud data" },
+  { value: 3, label: "Certifications", note: "SAS · TIBCO · Kanz AI" },
   { value: 2, label: "Languages", note: "EN · ML" },
 ]
 
@@ -86,6 +86,18 @@ export const terminalProfile = [
 ]
 
 export const experiences = [
+  {
+    role: "Enterprise AI Engineering Intern",
+    org: "InfoCreon Solutions Private Limited",
+    period: "September 2026 – October 2026",
+    location: "Kerala, India",
+    status: "valid",
+    bullets: [
+      "Built OSIP — Operations Support Intelligence Platform, a full-stack enterprise AI prototype that turns operational documents and historical support tickets into governed, reusable knowledge",
+      "Evidence-grounded reasoning workflows behind a provider-neutral AI gateway, with deterministic fallback so the system is not wholly dependent on an LLM",
+      "Automated regression, Golden and semantic validation for governed, auditable support investigation",
+    ],
+  },
   {
     role: "Agentic AI Intern",
     org: "InfoCreon Solutions Private Limited",
@@ -193,6 +205,19 @@ export const projects = [
     categories: ["RAG & LLM", "API & Apps"],
     period: "2026",
     outcome: "Deployed on Vercel with a retrieval answer loop over a grocery storage corpus.",
+  },
+  {
+    title: "OSIP — Operations Support Intelligence Platform",
+    description:
+      "Full-stack enterprise AI prototype that converts operational documents and historical support tickets into governed, reusable knowledge for support investigation.",
+    href: null,
+    status: "valid",
+    statusLabel: "Prototype",
+    tech: ["FastAPI", "React", "RAG", "LLM Gateway", "Python"],
+    categories: ["RAG & LLM", "API & Apps"],
+    period: "09/2026 – 10/2026",
+    outcome:
+      "Scan & Learn ingestion, OLI lifecycle governance and evidence-grounded reasoning behind a provider-neutral AI gateway — with deterministic fallback so answers degrade without an LLM rather than failing with one.",
   },
   {
     title: "Gym Intelligence Platform",
@@ -305,7 +330,6 @@ export const achievements = [
 export const certificates = [
   "SAS Professional",
   "TIBCO Professional",
-  "SAS–APU Joint Certificate in Data Science",
   "Kanz AI Training Hackathon Completion",
 ]
 

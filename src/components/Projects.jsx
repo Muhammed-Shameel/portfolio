@@ -95,22 +95,31 @@ export default function Projects() {
 
                 {/* title + the primary anchor (arrow is part of it) */}
                 <h3 className="font-display text-[1.6rem] font-bold leading-tight tracking-[-0.03em] text-ink md:col-span-7 md:text-[2.3rem]">
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    data-cursor={isLive ? "LIVE" : "VIEW"}
-                    className="focus-ring flex items-baseline gap-4"
-                  >
-                    <span className="relative inline-block">
+                  {project.href ? (
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-cursor={isLive ? "LIVE" : "VIEW"}
+                      className="focus-ring flex items-baseline gap-4"
+                    >
+                      <span className="relative inline-block">
+                        {project.title}
+                        <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-clay transition-all duration-300 group-hover:w-full" />
+                      </span>
+                      <i
+                        className="fa fa-arrow-up-right-from-square text-[0.55em] text-ink-4 transition-all duration-300 group-hover:translate-x-1 group-hover:text-clay"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  ) : (
+                    <span className="flex items-baseline gap-4">
                       {project.title}
-                      <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-clay transition-all duration-300 group-hover:w-full" />
+                      <span className="font-mono text-[0.58rem] font-normal uppercase tracking-[0.18em] text-ink-4">
+                        Client work
+                      </span>
                     </span>
-                    <i
-                      className="fa fa-arrow-up-right-from-square text-[0.55em] text-ink-4 transition-all duration-300 group-hover:translate-x-1 group-hover:text-clay"
-                      aria-hidden="true"
-                    />
-                  </a>
+                  )}
                 </h3>
 
                 {/* meta */}

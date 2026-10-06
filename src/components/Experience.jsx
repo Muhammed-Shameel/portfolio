@@ -19,8 +19,8 @@ export default function Experience() {
               {from} — {to}
             </p>
             <p className="mt-6 text-[0.9rem] leading-[1.9] text-ink-3">
-              Three roles, one through-line: take a messy problem, model it
-              properly, and hand back something that runs. Internships at
+              Four roles, one through-line: take a messy problem, model it
+              properly, and hand back something that runs. Three internships at
               InfoCreon plus two years teaching mathematics.
             </p>
             <p className="mt-6 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-ink-3">
