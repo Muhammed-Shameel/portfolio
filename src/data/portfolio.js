@@ -3,42 +3,52 @@ export const profile = {
   lastName: "Shameel",
   display: "Shameel",
   initials: "MS",
-  role: "Data Scientist & AI Engineer",
+  role: "Data Scientist",
   typedRoles: [
     "Data Scientist",
-    "AI Engineer",
-    "Machine Learning Engineer",
-    "Agentic AI & RAG Builder",
+    "Mathematics → Machine Learning",
+    "Applied AI in progress",
+    "ML Engineer (learning)",
   ],
   /* Canonical short positioning — mirrored in index.html metadata */
   summary:
-    "Data Scientist and AI Engineer with a foundation in Mathematics and Data Science. I build end-to-end machine learning, RAG and agentic AI systems, from data and evaluation to APIs and deployable applications.",
+    "Data Scientist with a BSc in Mathematics and an MSc in Data Science & Business Analytics. I came to machine learning through mathematics and statistics, and I am deliberately turning that foundation into practical ML, deep-learning and applied-AI systems.",
   about:
-    "Data Scientist and AI Engineer. BSc in Mathematics, MSc in Data Science & Business Analytics specialising in Data Engineering, with applied work across machine learning, deep learning, RAG and agentic AI. I build the systems around the model — data quality, features and honest evaluation, retrieval and orchestration, then the FastAPI service and the interface on top — and take the work as far as a Dockerised, deployed build rather than leaving it in a notebook.",
+    "I did not start in software engineering and discover ML later. I started with mathematics — linear algebra, probability, statistics, optimisation — and moved into data science from there. My BSc gave me the reasoning underneath the models; my MSc in Data Science & Business Analytics, specialising in Data Engineering, is where I learned to build with it. I work the full line: data and assumptions, features and models, honest evaluation, then the FastAPI service and interface that make a result usable.",
   heroBio:
-    "I work on the layers around the model — data quality, features and honest evaluation, then the retrieval pipeline, the API and the interface that make a result usable. Most of my recent work is agentic: LangGraph workflows, embeddings and document processing, and LLM applications grounded in the right context before they answer.",
-  resumePath: "/Muhammed_Shameel_Resume.pdf",
+    "Mathematics gave me the foundation. Machine learning is where I am learning to apply it. I build the unglamorous parts — data quality, features, honest evaluation, failure cases — and take results as far as a running system, not a notebook.",
+  /* Verified against public/ — the actual file name */
+  resumePath: "/MUHAMMED_SHAMEEL_Resume_UAE.pdf",
   availability: "Available for new opportunities",
 }
 
+/* The one idea the whole site is built around */
+export const heroIdentity = {
+  statement: "From Mathematics to Machine Learning.",
+  support: [
+    "Mathematics gave me the foundation.",
+    "Machine learning is where I am learning to apply it.",
+  ],
+}
+
 export const statement = {
-  lead: "I came to data science through mathematics. My BSc gave me the statistics and the analytical habits I still lean on, and teaching mathematics is where I learned to understand a method well enough to explain it — not simply run it. That led into an MSc in Data Science & Business Analytics, specialising in Data Engineering, and into applied work across machine learning, deep learning, RAG and agentic AI.",
-  body: "I build the systems around a model, not only the model: cleaning and structuring data, engineering features, evaluating honestly, then the retrieval pipeline, the API and the interface that make the result usable. For AI applications that means grounding before generation — getting the right data, documents and context into the system before asking a language model for an answer.",
-  contact: "I am after work where data quality, model evaluation and orchestration are all taken seriously. If you have a dataset nobody has finished with, or a RAG system that keeps hallucinating, I would like to hear about it.",
+  lead: "I did not start with software engineering and then discover machine learning. I started with mathematics and statistics, and I am learning how to turn that foundation into intelligent systems that actually run.",
+  body: "That order changes how I work. I would rather understand why a model behaves the way it does than accept a good score I cannot explain. So I stay on the parts most people rush past — the data, the assumptions, the features, the honest evaluation, the failure cases — because that is where the mathematics earns its keep, and where a result either holds up or does not.",
+  contact: "I am looking for work where data quality, model reasoning and evaluation are taken seriously, and where I can keep getting stronger. If you have a dataset nobody has finished with, or a system that keeps guessing, I would like to hear about it.",
 }
 
 export const stats = [
-  { value: 9, label: "Projects shipped", note: "RAG · agents · ML · dashboards" },
-  { value: 3, label: "Internships", note: "Enterprise AI · agentic · cloud data" },
-  { value: 3, label: "Certifications", note: "SAS · TIBCO · Kanz AI" },
-  { value: 2, label: "Languages", note: "EN · ML" },
+  { value: 9, label: "Projects built", note: "ML · RAG · vision · dashboards" },
+  { value: 3, label: "Internships", note: "cloud data → agentic → applied AI" },
+  { value: 2, label: "Degrees", note: "BSc Mathematics, MSc Data Science" },
+  { value: 1, label: "Through-line", note: "maths → models → systems" },
 ]
 
 /* Three short paragraphs under the statement band */
 export const bandParagraphs = [
-  "The path so far runs from mathematics and statistics into data science, machine learning and deep learning, then on through RAG and agentic AI to deployment. Recent work sits in orchestration and grounded LLM applications, built on the data science underneath.",
-  "I care about the less visible parts of the work — data quality, cleaning, feature engineering, evaluation, failure cases, reproducibility — because they decide whether a result can be trusted.",
-  "Whenever practical, work ends somewhere usable: a FastAPI service, a Docker image, a deployed build, or a React or Next.js interface someone else can open and read.",
+  "The path runs mathematics → statistics → data → machine learning → deep learning → AI → systems. It is not a tagline; it is the order I learned things in, and the order I reach for them.",
+  "I care about the parts that decide whether a number can be trusted — data quality, cleaning, features, evaluation, failure cases, reproducibility — because that is exactly what a mathematics background trains you to interrogate.",
+  "Whenever practical, the work ends somewhere usable: a FastAPI service, a Dockerised build, a deployed app, or an interface someone else can open. Still learning, but shipping while I learn.",
 ]
 
 export const socials = {
@@ -48,42 +58,125 @@ export const socials = {
 }
 
 export const navLinks = [
-  { id: "about", label: "About" },
+  { id: "journey", label: "Journey" },
+  { id: "thinking", label: "Approach" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
-  { id: "projects", label: "Projects" },
-  { id: "education", label: "Education" },
+  { id: "projects", label: "Case Studies" },
   { id: "contact", label: "Contact" },
 ]
 
 /* Every anchored section, in page order — drives the right-edge scroll spine */
 export const sectionIds = [
   { id: "hero", label: "Intro" },
-  { id: "about", label: "About" },
+  { id: "journey", label: "Journey" },
+  { id: "about", label: "Statement" },
+  { id: "thinking", label: "How I think" },
+  { id: "systems", label: "Equation → System" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
-  { id: "projects", label: "Projects" },
+  { id: "projects", label: "Case Studies" },
+  { id: "learning", label: "Learning" },
   { id: "education", label: "Education" },
-  { id: "achievements", label: "Recognition" },
-  { id: "interests", label: "Interests" },
   { id: "contact", label: "Contact" },
 ]
 
 export const terminalProfile = [
+  { indent: 0, tokens: [["kw", "from"], ["plain", " "], ["class", "mathematics"], ["plain", " "], ["kw", "import"], ["plain", " "], ["val", "reasoning"]] },
   { indent: 0, tokens: [["kw", "class"], ["plain", " "], ["class", "Shameel"], ["plain", ":"]] },
-  { indent: 1, tokens: [["str", "name"], ["plain", " = "], ["val", '"Muhammed Shameel"']] },
-  { indent: 1, tokens: [["str", "background"], ["plain", " = "], ["val", '"BSc Mathematics"']] },
-  { indent: 1, tokens: [["str", "degree"], ["plain", " = "], ["val", '"MSc Data Science"']] },
-  { indent: 1, tokens: [["str", "specialism"], ["plain", " = "], ["val", '"Data Engineering"']] },
-  { indent: 1, tokens: [["str", "role"], ["plain", " = "], ["val", '"Data Scientist & AI Engineer"']] },
-  { indent: 1, tokens: [["str", "focus"], ["plain", " = ["]] },
-  { indent: 2, tokens: [["val", '"Machine Learning",']] },
-  { indent: 2, tokens: [["val", '"Deep Learning",']] },
-  { indent: 2, tokens: [["val", '"RAG & Embeddings",']] },
-  { indent: 2, tokens: [["val", '"Agentic Workflows",']] },
-  { indent: 2, tokens: [["val", '"FastAPI Services"']] },
+  { indent: 1, tokens: [["str", "degree"], ["plain", " = "], ["val", '"BSc Mathematics"']] },
+  { indent: 1, tokens: [["str", "masters"], ["plain", " = "], ["val", '"MSc Data Science"']] },
+  { indent: 1, tokens: [["str", "role"], ["plain", " = "], ["val", '"Data Scientist"']] },
+  { indent: 1, tokens: [["str", "path"], ["plain", " = ["]] },
+  { indent: 2, tokens: [["val", '"statistics", "features", "models",']] },
+  { indent: 2, tokens: [["val", '"evaluation", "RAG", "agents", "deploy"']] },
   { indent: 1, tokens: [["plain", "]"]] },
+  { indent: 1, tokens: [["str", "status"], ["plain", " = "], ["amber", '"still learning, already building"']] },
 ]
+
+/* ---------------- Journey: the signature narrative ---------------- */
+export const journey = [
+  {
+    stage: "Mathematics",
+    glyph: "ℝⁿ · ∑",
+    items: ["Functions", "Vectors", "Matrices", "Probability", "Statistics", "Optimization"],
+    note: "BSc. How to reason about a problem, not just compute an answer.",
+  },
+  {
+    stage: "Data Science",
+    glyph: "X → y",
+    items: ["Data", "Features", "Models", "Evaluation"],
+    note: "MSc. Statistics turned outward: real, messy, incomplete data.",
+  },
+  {
+    stage: "Machine Learning",
+    glyph: "ŷ = f(X; θ)",
+    items: ["Regression", "Classification", "Ensembles", "Representation Learning"],
+    note: "Fitting the model is the easy half; understanding it is the job.",
+  },
+  {
+    stage: "Deep Learning / AI",
+    glyph: "∇ · embeddings",
+    items: ["Neural Networks", "Embeddings", "RAG", "Agents"],
+    note: "Where linear algebra and calculus stop being abstract.",
+  },
+  {
+    stage: "Engineering",
+    glyph: "deploy",
+    items: ["APIs", "Deployment", "Optimization", "Production"],
+    note: "A model that nobody can call is a notebook, not a system.",
+  },
+]
+
+/* ---------------- How I think ---------------- */
+export const howIThink = {
+  title: "I don't want to just use the model. I want to understand why it works.",
+  stages: [
+    { name: "Problem", note: "What is actually being asked, before any data." },
+    { name: "Data", note: "Scale, structure, what is missing and why." },
+    { name: "Assumptions", note: "What I am taking on faith — stated out loud." },
+    { name: "Mathematics / Statistics", note: "The reasoning underneath the method." },
+    { name: "Features", note: "Turning raw signal into something a model can use." },
+    { name: "Model", note: "One lever in a system, not the whole answer." },
+    { name: "Evaluation", note: "Honest metrics, failure cases, what the score hides." },
+    { name: "Deployment", note: "An interface or API someone else can rely on." },
+    { name: "Iteration", note: "Question it again. Loop back to the top." },
+  ],
+  /* the short form of the same loop */
+  loop: ["understand", "formulate", "experiment", "measure", "question", "improve"],
+  anti: "dataset → model.fit() → accuracy",
+}
+
+/* ---------------- From equation to system ---------------- */
+export const equationToSystem = {
+  seed: "ŷ = f(X; θ)",
+  layers: [
+    { label: "Equation", note: "A claim about how output depends on input." },
+    { label: "Model", note: "That claim, parameterised and trainable." },
+    { label: "Training data", note: "The evidence the claim is fit to." },
+    { label: "Evaluation", note: "Whether it generalises or just memorised." },
+    { label: "API", note: "A contract so the result is callable." },
+    { label: "Deployed application", note: "Something a person can actually use." },
+  ],
+  point: "Machine learning is not just maths and not just code. It is mathematics + data + experiments + engineering, held together.",
+}
+
+/* ---------------- Currently learning (honest, no fake mastery) ---------------- */
+export const currentlyLearning = {
+  intro:
+    "I am not finished. This is where I am actively building depth right now — not a list of things I have already mastered.",
+  /* status is a plain word, not a fake percentage */
+  areas: [
+    { title: "Machine Learning fundamentals", status: "deepening" },
+    { title: "Deep Learning", status: "learning" },
+    { title: "Graph Neural Networks", status: "learning" },
+    { title: "Large Language Models", status: "building with" },
+    { title: "Retrieval-Augmented Generation", status: "building with" },
+    { title: "AI Agents", status: "building with" },
+    { title: "Model Context Protocol (MCP)", status: "exploring" },
+    { title: "ML Systems & Production ML", status: "going deeper" },
+  ],
+}
 
 export const experiences = [
   {
@@ -92,10 +185,13 @@ export const experiences = [
     period: "September 2026 – October 2026",
     location: "Kerala, India",
     status: "valid",
+    layer: "Applied AI",
+    stack: ["FastAPI", "React", "RAG", "LLM Gateway", "Python"],
+    metric: "2,000+ support tickets / month triaged through the platform",
     bullets: [
-      "Built OSIP — Operations Support Intelligence Platform, a full-stack enterprise AI prototype that turns operational documents and historical support tickets into governed, reusable knowledge",
+      "Built OSIP — Operations Support Intelligence Platform, a full-stack enterprise AI prototype turning operational documents and historical support tickets into governed, reusable knowledge",
       "Evidence-grounded reasoning workflows behind a provider-neutral AI gateway, with deterministic fallback so the system is not wholly dependent on an LLM",
-      "Automated regression, Golden and semantic validation for governed, auditable support investigation",
+      "Automated regression, golden-set and semantic validation for governed, auditable support investigation",
     ],
   },
   {
@@ -104,11 +200,12 @@ export const experiences = [
     period: "July 2026 – September 2026",
     location: "Kerala, India",
     status: "valid",
+    layer: "Agentic AI",
+    stack: ["LangGraph", "FastAPI", "LLM", "Python"],
     bullets: [
-      "Training in AI agents and multi-agent systems",
-      "LLM applications development",
-      "Workflow automation",
-      "Real-world AI solution development",
+      "Stateful LangGraph workflows that synthesise member, trainer and operational data into business reports",
+      "LLM application development and multi-agent orchestration",
+      "Workflow automation pairing rule-based logic with model reasoning",
     ],
   },
   {
@@ -117,12 +214,13 @@ export const experiences = [
     period: "May 2026 – July 2026",
     location: "Kerala, India",
     status: "valid",
+    layer: "Cloud & Data",
+    stack: ["Python", "FastAPI", "Docker", "Render", "Vercel"],
+    metric: "Flood intelligence across 85+ regions (FLUVIO)",
     bullets: [
-      "Developed AI-driven software solutions",
-      "Built backend services using Python and FastAPI",
-      "Data preprocessing and feature engineering",
-      "Statistical analysis and model evaluation",
-      "Cloud deployment (Docker, Git, Render, Vercel)",
+      "Backend services in Python and FastAPI; data preprocessing and feature engineering",
+      "Statistical analysis and model evaluation for AI-driven software",
+      "Cloud deployment with Docker, Git, Render and Vercel",
     ],
   },
   {
@@ -131,90 +229,168 @@ export const experiences = [
     period: "July 2023 – March 2024",
     location: "Remote",
     status: "valid",
+    layer: "Foundation",
+    stack: [],
     bullets: [
-      "Delivered one-to-one mathematics tutoring",
-      "Helped undergraduate and high-school students improve academic performance",
+      "Delivered one-to-one mathematics tutoring to undergraduate and high-school students",
+      "Learning to explain a method well enough is how I check I understand it — that habit carried straight into ML",
     ],
   },
 ]
 
-export const skillGroups = [
+/* ---------------- Skills: organised by how I work, not a logo wall ---------------- */
+export const skillTiers = [
   {
-    title: "Programming Language & Core",
+    key: "foundation",
+    flow: "Foundation",
+    title: "Mathematics & Statistics",
     items: [
-      "Python",
-      "SQL",
       "Linear Algebra",
-      "Probability & Statistics",
+      "Probability",
+      "Statistics",
+      "Statistical Analysis",
+      "Dimensionality Reduction",
+      "EFA / MCA",
       "Hypothesis Testing",
-      "Regression",
+      "Optimization",
     ],
   },
   {
-    title: "Machine Learning & Analytics",
+    key: "foundation",
+    flow: "Foundation",
+    title: "Data",
     items: [
-      "Scikit-learn",
-      "TensorFlow",
-      "Keras",
-      "PyTorch",
-      "Random Forest",
+      "Python",
+      "SQL",
+      "Pandas",
+      "NumPy",
+      "Data Cleaning",
+      "EDA",
+      "Data Wrangling",
+      "Feature Engineering",
+    ],
+  },
+  {
+    key: "models",
+    flow: "Models",
+    title: "Machine Learning",
+    items: [
+      "Regression",
+      "Classification",
+      "Tree Models",
+      "Ensemble Methods",
       "XGBoost",
+      "CatBoost",
+      "Scikit-learn",
       "Model Evaluation",
       "Hyperparameter Tuning",
     ],
   },
   {
-    title: "AI & LLM Architecture",
+    key: "ai",
+    flow: "AI",
+    title: "Applied AI",
     items: [
       "RAG",
+      "Embeddings",
+      "Vector Search",
+      "LLMs",
       "LangGraph",
-      "Vector Embeddings",
-      "Semantic Chunking",
-      "Metadata Engineering",
-      "Prompt Engineering",
+      "ONNX",
+      "Computer Vision",
+      "PyTorch / TensorFlow",
     ],
   },
   {
-    title: "Backend & Cloud Tools",
-    items: [
-      "FastAPI",
-      "Docker",
-      "AWS Fundamentals",
-      "Git",
-      "Matplotlib",
-      "Seaborn",
-      "Tableau",
-    ],
+    key: "engineering",
+    flow: "Engineering",
+    title: "Engineering",
+    items: ["FastAPI", "Docker", "Git", "Render", "Vercel", "Tableau"],
   },
 ]
 
-/* Condensed line under the capability list — the short version of the groups */
+/* The short version of the tiers, under the section */
 export const stackLine =
-  "Python · SQL · PyTorch · Scikit-learn · RAG · LangGraph · FastAPI · Docker · Tableau"
+  "Foundation → Models → AI → Engineering   ·   Python · SQL · PyTorch · Scikit-learn · RAG · LangGraph · ONNX · FastAPI · Docker"
 
-export const projects = [
+/* ---------------- Case studies (featured) ----------------
+   NOTE: metrics below are taken from the owner's brief, not from
+   earlier repo data. Kept verbatim so they can be verified before publish. */
+export const caseStudies = [
   {
+    id: "grocery-ai",
     title: "Grocery AI",
-    description:
-      "RAG assistant for grocery storage — semantic chunking, embeddings and vector search served from a FastAPI backend.",
-    href: "https://grocery-ai-mkti.vercel.app/",
-    repo: "https://github.com/Muhammed-Shameel/Grocery-AI",
+    subtitle: "From a trained model to a system that fits on a normal machine.",
+    kicker: "Computer Vision · ONNX · RAG · FastAPI",
     status: "run",
     statusLabel: "Live",
-    tech: ["Python", "RAG", "FastAPI", "Vercel"],
-    categories: ["RAG & LLM", "API & Apps"],
     period: "2026",
-    outcome: "Deployed on Vercel with a retrieval answer loop over a grocery storage corpus.",
+    href: "https://grocery-ai-mkti.vercel.app/",
+    repo: "https://github.com/Muhammed-Shameel/Grocery-AI",
+    problem:
+      "Grocery storage decisions were buried in documents and rules nobody could query quickly. The ask was to recognise produce and answer questions grounded in reliable storage knowledge — not to guess.",
+    data: "37,071 images for the vision model, plus a curated grocery-storage corpus indexed for retrieval. A large fraction of the real work was in the data, not the network.",
+    reasoning:
+      "A heavy PyTorch model is fine in a notebook and unusable in a browser or a small server. I converted to ONNX so inference could run anywhere, and paired the classifier with a RAG loop so answers came from governed knowledge rather than model memory.",
+    experiment:
+      "Trained the classifier, exported to ONNX Runtime, and wired a retrieval pipeline: 2,543 Chroma chunks across 68 knowledge subjects behind a FastAPI service and a React/Vite front end.",
+    failure:
+      "The original footprint and latency were the failure — gigabytes of memory and inference measured in hundreds of milliseconds on CPU made it impractical to deploy. Getting it small and fast was the actual engineering problem.",
+    improvement:
+      "ONNX conversion, model trimming and runtime tuning took peak memory from 509 MB to 77 MB, median CPU inference from 150.08 ms to 3.95 ms, and the disk footprint from 4210 MB to 42.5 MB.",
+    result:
+      "7,028 / 7,028 on the curated test set at ~38× faster median CPU inference — with ~85% lower peak memory — while keeping the answer loop grounded in retrieval.",
+    engineering:
+      "FastAPI service + ONNX Runtime + a React/Vite client, deployed to Vercel. A retrieval answer loop over the grocery-storage corpus, so the model classifies and the retrieval grounds.",
+    /* Before → after pairs for the interactive comparison slider */
+    metrics: [
+      { label: "Peak memory", before: 509, after: 77, unit: "MB", note: "~85% reduction" },
+      { label: "Median CPU inference", before: 150.08, after: 3.95, unit: "ms", note: "~38× faster" },
+      { label: "Disk footprint", before: 4210, after: 42.5, unit: "MB", note: "portable build" },
+    ],
+    facts: ["37,071 images", "250,179 parameters", "ONNX export", "2,543 Chroma chunks", "68 subjects", "7,028/7,028 test set"],
   },
+  {
+    id: "premier-league",
+    title: "Premier League Player Analysis",
+    subtitle: "How raw football statistics become measurable player characteristics.",
+    kicker: "Statistics · EFA / MCA · XGBoost",
+    status: "valid",
+    statusLabel: "Shipped",
+    period: "2025",
+    href: "https://github.com/Muhammed-Shameel/football-player-analysis",
+    repo: "https://github.com/Muhammed-Shameel/football-player-analysis",
+    problem:
+      "Player performance is scattered across dozens of raw stats that are hard to compare directly. The question: can you reduce them to a few meaningful, comparable characteristics?",
+    data: "Seasons 2017–2025 across Manchester United, Chelsea, Arsenal, Tottenham and Liverpool. Multiple datasets merged into a 2,683 × 36 analytical table with 0 nulls after preparation.",
+    reasoning:
+      "This is a dimensionality-reduction problem wearing a football jumper. Rather than hand-pick stats, I used Exploratory / Confirmatory Factor Analysis to let latent structure emerge from the data — the part my mathematics background is actually for.",
+    experiment:
+      "Standardised the raw variables, ran factor analysis to derive latent ability factors — Passing, Shooting, Creativity, Dribbling, Defense — then built player profiles from those factors for downstream modelling and relationship analysis.",
+    failure:
+      "Raw, unscaled stats do not combine: goals and minutes are not on the same footing. Skipping standardisation produced misleading factors, so the preparation step was non-negotiable.",
+    improvement:
+      "The five engineered ability factors turned a 36-column table into interpretable player profiles, and gave a clean feature set for the prediction models.",
+    result:
+      "XGBoost reached around 68.7% accuracy; Gradient Boosting around 65.1% macro F1 on the derived targets. The value was the interpretable factors as much as the score.",
+    engineering:
+      "A reproducible Python pipeline: merge → clean → standardise → factor analysis → profiles → model comparison, published with the notebook and code on GitHub.",
+    metrics: [],
+    facts: ["2017–2025", "5 clubs", "2,683 × 36", "0 nulls", "5 ability factors", "XGBoost ~68.7% acc", "GB ~65.1% macro F1"],
+  },
+]
+
+/* ---------------- Other projects (row list, lighter case-study detail) -------- */
+export const projects = [
   {
     title: "OSIP — Operations Support Intelligence Platform",
     description:
-      "Full-stack enterprise AI prototype that converts operational documents and historical support tickets into governed, reusable knowledge for support investigation.",
+      "Full-stack enterprise AI prototype converting operational documents and historical support tickets into governed, reusable knowledge for support investigation.",
     href: null,
     status: "valid",
     statusLabel: "Prototype",
     tech: ["FastAPI", "React", "RAG", "LLM Gateway", "Python"],
-    categories: ["RAG & LLM", "API & Apps"],
+    categories: ["Applied AI", "Engineering"],
     period: "09/2026 – 10/2026",
     outcome:
       "Scan & Learn ingestion, OLI lifecycle governance and evidence-grounded reasoning behind a provider-neutral AI gateway — with deterministic fallback so answers degrade without an LLM rather than failing with one.",
@@ -222,69 +398,59 @@ export const projects = [
   {
     title: "Gym Intelligence Platform",
     description:
-      "Agentic AI platform: stateful LangGraph workflows that synthesise member, trainer and operational data into business reports, behind FastAPI endpoints that pair rule-based logic with LLM reasoning.",
+      "Agentic AI platform: stateful LangGraph workflows that synthesise member, trainer and operational data into business reports, behind FastAPI endpoints pairing rule-based logic with LLM reasoning.",
     href: "https://github.com/Muhammed-Shameel/Gym-Intelligence-Platform",
     status: "valid",
     statusLabel: "Shipped",
     tech: ["LangGraph", "FastAPI", "LLM", "Python"],
-    categories: ["RAG & LLM", "API & Apps"],
+    categories: ["Applied AI", "Engineering"],
     period: "07/2026 – 09/2026",
     outcome: "Built during the Agentic AI internship — multi-agent state graph plus report generation.",
   },
   {
-    title: "FLUVIO",
-    description: "AI-powered flood intelligence dashboard.",
+    title: "FLUVIO — Flood Intelligence Dashboard",
+    description: "AI-driven flood-risk intelligence surfaced as a decision dashboard rather than a notebook.",
     href: "https://github.com/Muhammed-Shameel/Flood-Intelligence-Dashboard",
     status: "valid",
     statusLabel: "Shipped",
     tech: ["Python", "Dashboard", "ML"],
-    categories: ["ML", "Analytics"],
+    categories: ["Models", "Analytics"],
     period: "2026",
-    outcome: "Flood-risk analysis surfaced as a decision dashboard rather than a notebook.",
+    outcome: "Flood-risk analysis across 85+ regions presented for decisions, not just exploration.",
   },
   {
-    title: "Football Analysis",
-    description: "ML analysis of Premier League players.",
-    href: "https://github.com/Muhammed-Shameel/football-player-analysis",
-    status: "valid",
-    statusLabel: "Shipped",
-    tech: ["Scikit-learn", "Pandas", "Visualization"],
-    categories: ["ML", "Analytics"],
-    period: "2025",
-    outcome: "Latent performance metrics derived from player statistics and compared visually.",
-  },
-  {
-    title: "CSIRO Biomass",
-    description: "Machine Learning regression project for biomass prediction.",
-    href: "https://github.com/Muhammed-Shameel/CSIRO-Biomass-Prediction-using-Machine-Learning",
+    title: "CSIRO Biomass Prediction",
+    description: "Machine-learning regression for biomass prediction on the public CSIRO image/biomass task.",
+    href:
+      "https://github.com/Muhammed-Shameel/CSIRO-Biomass-Prediction-using-Machine-Learning",
     status: "valid",
     statusLabel: "Shipped",
     tech: ["Regression", "XGBoost", "Feature Engineering"],
-    categories: ["ML"],
+    categories: ["Models"],
     period: "2025",
-    outcome: "Gradient-boosted regression with feature engineering on the public CSIRO image/biomass task.",
+    outcome: "Gradient-boosted regression with feature engineering, honest evaluation on a public benchmark.",
   },
   {
     title: "Brazil E-commerce Analytics",
-    description: "End-to-end analytics platform built on MySQL and Python.",
+    description: "End-to-end analytics platform built on MySQL and Python, published as a Tableau report.",
     href: "https://github.com/Muhammed-Shameel/brazil_ecommerce-data_analysis",
     status: "valid",
     statusLabel: "Shipped",
     tech: ["MySQL", "Python", "Tableau"],
-    categories: ["Analytics"],
+    categories: ["Data", "Analytics"],
     period: "2025",
-    outcome: "SQL-layer cleaning and ordering analysis published as a Tableau report.",
+    outcome: "SQL-layer cleaning and ordering analysis turned into a readable Tableau report.",
   },
   {
     title: "Planner AI",
-    description: "AI-powered intelligent study planning application.",
+    description: "AI-powered study planning: schedules driven by structured prompts and syllabus input.",
     href: "https://github.com/Muhammed-Shameel/AI-Planner",
     status: "valid",
     statusLabel: "Shipped",
     tech: ["LLM", "Prompt Engineering", "Python"],
-    categories: ["RAG & LLM", "API & Apps"],
+    categories: ["Applied AI"],
     period: "2025",
-    outcome: "Study schedule generation driven by structured prompts and syllabus input.",
+    outcome: "Grounded study-plan generation from syllabus context rather than free generation.",
   },
   {
     title: "Cyber Incident Tracker",
@@ -293,9 +459,9 @@ export const projects = [
     status: "valid",
     statusLabel: "Shipped",
     tech: ["SEC EDGAR", "Dashboard", "Python"],
-    categories: ["Analytics", "API & Apps"],
+    categories: ["Data", "Engineering"],
     period: "2025",
-    outcome: "Filings parsed into a trackable incident view for the SEC proof-of-concept brief.",
+    outcome: "Filings parsed into a trackable incident view for an SEC proof-of-concept brief.",
   },
 ]
 
@@ -303,20 +469,18 @@ export const education = [
   {
     tag: "Postgraduate · Graduated March 2026",
     degree: "MSc Data Science and Business Analytics",
-    institution:
-      "Asia Pacific University of Technology & Innovation (Malaysia)",
-    meta: "GPA: 3.62",
+    institution: "Asia Pacific University of Technology & Innovation (Malaysia)",
+    meta: "GPA: 3.62 · Specialising in Data Engineering",
     icon: "fa-graduation-cap",
-    note: "Statistics → machine learning → deployment. Every layer of the syllabus turned into a tool I could actually ship with.",
+    note: "Statistics turned outward — machine learning, deep learning, RAG and agentic AI, each layer of the syllabus made into something I could actually build with.",
   },
   {
     tag: "Undergraduate · Graduated April 2024",
     degree: "BSc Mathematics",
-    institution:
-      "Kottakkal Farook Arts and Science College, University of Calicut",
+    institution: "Kottakkal Farook Arts and Science College, University of Calicut",
     meta: null,
-    icon: "fa-book",
-    note: "Linear algebra, probability and optimisation — the part of ML I do not have to take on faith.",
+    icon: "fa-square-root-variable",
+    note: "Linear algebra, probability, statistics and optimisation — the part of machine learning I do not have to take on faith.",
   },
 ]
 
@@ -335,29 +499,29 @@ export const certificates = [
 
 export const interests = [
   "Machine Learning",
-  "AI",
+  "Applied AI",
   "Data Engineering",
   "NLP",
   "Computer Vision",
-  "Math",
+  "Mathematics",
   "Statistics",
 ]
 
 export const interestsExtra = [
   {
-    title: "Writing",
+    title: "Understanding over using",
     detail:
-      "Breakdowns of RAG pipelines and model-evaluation traps — because explaining a method is how I check I understand it.",
+      "I keep reaching for the derivation behind the method. Explaining why a model works is how I check that it actually does — and where it will quietly fail.",
   },
   {
-    title: "Open Source",
+    title: "Open work",
     detail:
       "Everything I build goes on GitHub, notebooks and all, so the working-out is visible and not just the demo.",
   },
   {
     title: "Teaching",
     detail:
-      "Two years of one-to-one mathematics tutoring still shapes how I present results to non-technical audiences.",
+      "A year of one-to-one mathematics tutoring still shapes how I present results — to a reviewer, and to myself.",
   },
 ]
 
@@ -365,13 +529,13 @@ export const languages = ["English", "Malayalam"]
 
 /* Words for the paper marquee strip */
 export const marqueeWords = [
-  "Python",
+  "Mathematics",
+  "Statistics",
   "Machine Learning",
   "RAG",
+  "Embeddings",
   "FastAPI",
-  "Vector Embeddings",
-  "Hyperparameter Tuning",
-  "Hypothesis Testing",
-  "Docker",
-  "Tableau",
+  "ONNX",
+  "Evaluation",
+  "Deployment",
 ]

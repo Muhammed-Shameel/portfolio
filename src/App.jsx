@@ -1,12 +1,15 @@
 import Navbar from "./components/Navbar"
 import SectionIndex from "./components/SectionIndex"
 import Hero from "./components/Hero"
+import Journey from "./components/Journey"
 import About from "./components/About"
-import AboutBand from "./components/AboutBand"
 import StatsBand from "./components/StatsBand"
+import HowIThink from "./components/HowIThink"
+import EquationToSystem from "./components/EquationToSystem"
 import Experience from "./components/Experience"
 import Skills from "./components/Skills"
 import Projects from "./components/Projects"
+import CurrentlyLearning from "./components/CurrentlyLearning"
 import Education from "./components/Education"
 import Achievements from "./components/Achievements"
 import Interests from "./components/Interests"
@@ -25,12 +28,15 @@ export default function App() {
       <SectionIndex />
       <main>
         <Hero />
+        <Journey />
         <About />
-        <AboutBand />
         <StatsBand />
+        <HowIThink />
+        <EquationToSystem />
         <Experience />
         <Skills />
         <Projects />
+        <CurrentlyLearning />
         <Education />
         <Achievements />
         <Interests />

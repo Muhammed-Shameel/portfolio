@@ -1,14 +1,13 @@
 import { useRef } from "react"
 import Reveal from "./Reveal"
-import { profile, socials } from "../data/portfolio"
+import HeroTransform from "./HeroTransform"
+import { profile, socials, heroIdentity } from "../data/portfolio"
 import { useTypedText } from "../hooks/useTypedText"
-import { usePointerParallax, useMagnetic } from "../hooks/usePointerMotion"
+import { usePointerParallax } from "../hooks/usePointerMotion"
 
-function HeroLink({ href, download, target, label, icon, magnetic }) {
-  const ref = useMagnetic(4)
+function HeroLink({ href, download, target, label, icon }) {
   return (
     <a
-      ref={magnetic ? ref : undefined}
       href={href}
       download={download}
       target={target}
@@ -36,94 +35,107 @@ export default function Hero() {
       <div className="hero-glow glow-warm animate-float-glow" />
       <div className="grain" />
 
-      {/* corner meta — only when the display type has room for it */}
+      {/* corner meta */}
       <div className="absolute left-6 top-28 hidden max-w-[240px] font-mono text-[0.7rem] uppercase tracking-[0.18em] text-ink-3 xl:left-8 xl:block">
         <p>Abu Dhabi, United Arab Emirates</p>
         <p className="mt-1 text-clay">{profile.availability}</p>
       </div>
 
-      {/* same container as every Section, so the columns line up below */}
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 py-20 md:px-10">
-        <div className="max-w-[1160px]">
-          <Reveal
-            as="p"
-            variant="reveal-fade"
-            className="mb-6 flex items-center gap-3 font-mono text-[0.72rem] uppercase tracking-[0.2em] text-ink-3"
-          >
-            <span className="h-px w-10 bg-clay" />
-            Portfolio · 2026
-          </Reveal>
-
-          <h1 className="mb-10">
-            <Reveal
-              as="span"
-              variant="reveal-rise"
-              delay={1}
-              className="block"
-            >
-              <span className="crossed outline-ink display-hero">
-                {profile.firstName}
-              </span>
-            </Reveal>
-            <Reveal as="span" variant="reveal-rise" delay={2} className="block">
-              <span className="display-hero block text-ink">
-                {profile.display}
-              </span>
-            </Reveal>
-          </h1>
-
-          <div className="grid gap-10 md:grid-cols-12 md:items-end">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-8">
+          {/* left: the identity */}
+          <div className="lg:col-span-7">
             <Reveal
               as="p"
+              variant="reveal-fade"
+              className="mb-6 flex flex-wrap items-center gap-3 font-mono text-[0.72rem] uppercase tracking-[0.2em] text-ink-3"
+            >
+              <span className="h-px w-10 bg-clay" />
+              Data Scientist · BSc Mathematics → ML
+            </Reveal>
+
+            <h1 className="display-xl">
+              <Reveal as="span" variant="reveal-rise" delay={1} className="block text-ink">
+                From Mathematics
+              </Reveal>
+              <Reveal as="span" variant="reveal-rise" delay={2} className="block">
+                <span className="outline-clay">to Machine Learning.</span>
+              </Reveal>
+            </h1>
+
+            <Reveal
+              as="p"
+              variant="reveal-fade"
               delay={3}
-              className="max-w-[560px] text-[0.95rem] leading-[1.85] text-ink-2 md:col-span-7"
+              className="mt-6 max-w-[520px] font-mono text-[0.82rem] leading-[2] text-ink-2"
+            >
+              {heroIdentity.support[0]}
+              <br />
+              <span className="text-clay">{heroIdentity.support[1]}</span>
+            </Reveal>
+
+            <Reveal
+              as="p"
+              delay={4}
+              className="mt-8 max-w-[560px] text-[0.95rem] leading-[1.85] text-ink-3"
             >
               {profile.heroBio}
             </Reveal>
 
+            {/* identity + role */}
             <Reveal
               as="div"
-              delay={4}
-              className="font-mono md:col-span-5 md:text-right"
+              delay={5}
+              className="mt-10 flex flex-wrap items-baseline gap-x-6 gap-y-2"
             >
-              <p className="min-h-[1.5em] text-[0.9rem] text-clay">
+              <span className="font-display text-[1.4rem] font-bold tracking-[-0.02em] text-ink">
+                {profile.firstName} {profile.lastName}
+              </span>
+              <span className="font-mono text-[0.82rem] uppercase tracking-[0.16em] text-clay">
+                {profile.role}
+              </span>
+              <span className="min-h-[1.5em] font-mono text-[0.8rem] text-ink-3">
+                <span className="text-ink-4">&gt;&nbsp;</span>
                 {typed}
                 <span className="animate-blink ml-1">|</span>
-              </p>
-              <p className="mt-2 text-[0.72rem] uppercase tracking-[0.18em] text-ink-3">
-                {profile.role}
-              </p>
+              </span>
+            </Reveal>
+
+            <Reveal
+              delay={6}
+              className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4"
+            >
+              <HeroLink
+                href="#projects"
+                label="Read the case studies"
+                icon="fa fa-arrow-right transition-transform group-hover:translate-x-1"
+              />
+              <HeroLink
+                href="#journey"
+                label="The journey"
+                icon="fa fa-arrow-down transition-transform group-hover:translate-y-1"
+              />
+              <HeroLink
+                href={profile.resumePath}
+                download
+                label="Download resume"
+                icon="fa fa-arrow-down transition-transform group-hover:translate-y-1"
+              />
+              <HeroLink href={socials.github} target="_blank" label="GitHub" icon="fab fa-github" />
+              <HeroLink href={`mailto:${socials.email}`} label="Email" icon="fa fa-envelope" />
             </Reveal>
           </div>
 
+          {/* right: mathematics becoming intelligence */}
           <Reveal
-            delay={5}
-            className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4"
+            as="div"
+            variant="reveal-fade"
+            delay={3}
+            className="lg:col-span-5"
           >
-            <HeroLink
-              href="#projects"
-              label="View projects"
-              icon="fa fa-arrow-right transition-transform group-hover:translate-x-1"
-              magnetic
-            />
-            <HeroLink
-              href={profile.resumePath}
-              download
-              label="Download resume"
-              icon="fa fa-arrow-down transition-transform group-hover:translate-y-1"
-              magnetic
-            />
-            <HeroLink
-              href={socials.github}
-              target="_blank"
-              label="GitHub"
-              icon="fab fa-github"
-            />
-            <HeroLink
-              href={`mailto:${socials.email}`}
-              label="Email"
-              icon="fa fa-envelope"
-            />
+            <div className="hero-transform-wrap">
+              <HeroTransform />
+            </div>
           </Reveal>
         </div>
       </div>

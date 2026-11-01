@@ -1,53 +1,15 @@
 import Section from "./Section"
 import Reveal from "./Reveal"
-import { useMagnetic } from "../hooks/usePointerMotion"
-import { skillGroups, stackLine, marqueeWords } from "../data/portfolio"
+import { skillTiers, stackLine, marqueeWords } from "../data/portfolio"
 
-/* One capability row. The arrow is magnetic, so the pointer has to be tracked
-   per row — which means a component, not a map body. */
-function SkillRow({ group, index }) {
-  const pullRef = useMagnetic(3)
-
-  return (
-    <Reveal
-      variant="reveal-fade"
-      delay={index % 4}
-      as="div"
-      className="group border-b border-hairline"
-    >
-      <div className="flex cursor-default items-baseline gap-5 py-6 transition-colors group-hover:text-clay">
-        <span className="font-mono text-[0.7rem] tracking-[0.18em] text-ink-3">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-        <div className="min-w-0 flex-1">
-          <h3 className="font-display text-[1.25rem] font-bold tracking-[-0.02em] text-ink transition-colors group-hover:text-clay md:text-[1.5rem]">
-            {group.title}
-          </h3>
-          <p className="mt-2 text-[0.88rem] leading-[1.8] text-ink-3">
-            {group.items.join(" · ")}
-          </p>
-        </div>
-        <span ref={pullRef} className="self-center">
-          <i
-            className="fa fa-arrow-right -translate-x-2 self-center opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
-            aria-hidden="true"
-          />
-        </span>
-      </div>
-    </Reveal>
-  )
-}
+/* Not a logo wall. The skills are ordered by where they sit in how I work —
+   a foundation that supports models, that support AI, that need engineering to
+   become anything. The flow line at the top is the point; the groups hang off it. */
+const FLOWS = ["Foundation", "Models", "AI", "Engineering"]
 
 export default function Skills() {
   return (
-    <Section
-      id="skills"
-      index="03"
-      label="Skills"
-      title="Technical Arsenal"
-      alternate
-      rule
-    >
+    <Section id="skills" index="06" label="Skills" title="How I Actually Work" alternate rule>
       {/* marquee strip */}
       <Reveal variant="reveal-fade" className="marquee bleed-x mb-16 py-4">
         <div className="marquee-track">
@@ -67,19 +29,56 @@ export default function Skills() {
         </div>
       </Reveal>
 
-      {/* capabilities list */}
-      <div className="grid md:grid-cols-2 md:gap-x-12">
-        {skillGroups.map((group, i) => (
-          <SkillRow key={group.title} group={group} index={i} />
+      {/* the flow line */}
+      <Reveal
+        variant="reveal-fade"
+        className="mb-14 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-ink-3"
+      >
+        {FLOWS.map((flow, i) => (
+          <span key={flow} className="flex items-center gap-4">
+            <span className="skill-flow-chip">{flow}</span>
+            {i < FLOWS.length - 1 && <span className="text-clay">→</span>}
+          </span>
         ))}
+      </Reveal>
+
+      {/* tiers, grouped under each flow */}
+      <div className="flex flex-col gap-12">
+        {FLOWS.map((flow) => {
+          const groups = skillTiers.filter((g) => g.flow === flow)
+          return (
+            <Reveal key={flow} variant="reveal-fade" as="div" className="skill-block">
+              <div className="skill-block-head">
+                <span className="skill-flow-label">{flow}</span>
+                <span className="h-px flex-1 bg-hairline" />
+              </div>
+              <div className="grid gap-x-12 gap-y-8 md:grid-cols-2">
+                {groups.map((group) => (
+                  <div key={group.title}>
+                    <h3 className="font-display text-[1.25rem] font-bold tracking-[-0.02em] text-ink md:text-[1.5rem]">
+                      {group.title}
+                    </h3>
+                    <ul className="mt-3 flex flex-wrap gap-2">
+                      {group.items.map((item) => (
+                        <li key={item} className="tag">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          )
+        })}
       </div>
 
       <Reveal
         as="p"
         variant="reveal-fade"
-        className="mt-12 font-mono text-[0.75rem] uppercase leading-[2] tracking-[0.16em] text-ink-3"
+        className="mt-14 font-mono text-[0.72rem] uppercase leading-[2] tracking-[0.14em] text-ink-3"
       >
-        <span className="text-clay">Core stack</span> — {stackLine}
+        <span className="text-clay">The line</span> — {stackLine}
       </Reveal>
     </Section>
   )

@@ -767,3 +767,591 @@ body:has(.filter-bar:focus-within) .marquee-track {
     transform: none !important;
   }
 }
+
+/* ===========================
+   INTERACTIVE MATH VISUALS
+   Lightweight SVG + a couple of range inputs. Flowing signals are CSS
+   stroke-dashoffset animations, gated behind `.is-live` (only while the
+   visual is on screen) and switched off entirely under reduced motion, so the
+   maths toys stay honest on low-power devices and never cost a repaint loop.
+=========================== */
+
+/* shared slider */
+.math-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2px;
+  background: var(--color-hairline-strong);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.math-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-clay);
+  border: 2px solid var(--color-paper);
+  box-shadow: 0 0 0 1px var(--color-clay);
+}
+.math-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-paper);
+  border-radius: 50%;
+  background: var(--color-clay);
+}
+.math-range:focus-visible {
+  outline: 2px solid var(--color-clay);
+  outline-offset: 4px;
+}
+
+/* svg type + fills */
+.axis-line {
+  stroke: var(--color-hairline);
+  stroke-width: 1;
+}
+.vec-label {
+  fill: var(--color-ink-3);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.fill-clay {
+  fill: var(--color-clay);
+}
+.fill-ink-3 {
+  fill: var(--color-ink-3);
+}
+.fill-ink {
+  fill: var(--color-ink);
+}
+
+/* neural network */
+.nn-svg .nn-edge {
+  stroke: var(--color-clay-line);
+  stroke-width: 1;
+  opacity: 0.55;
+  stroke-dasharray: 4 8;
+}
+.nn-svg.is-live .nn-edge {
+  animation: dashFlow 2.4s linear infinite;
+}
+.nn-node {
+  fill: var(--color-card);
+  stroke: var(--color-clay);
+  stroke-width: 1.5;
+  cursor: pointer;
+  transition: fill 0.2s, r 0.2s;
+}
+.nn-node:hover,
+.nn-node.is-active {
+  fill: var(--color-clay);
+}
+.nn-node:focus-visible {
+  outline: 2px solid var(--color-clay);
+  outline-offset: 2px;
+}
+.nn-caption {
+  margin-top: 0.75rem;
+  min-height: 1.6em;
+  text-align: center;
+}
+
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -48;
+  }
+}
+
+/* vectors */
+.vec-line-clay {
+  stroke: var(--color-clay);
+  stroke-width: 2.5;
+}
+.vec-line-ink {
+  stroke: var(--color-ink-3);
+  stroke-width: 2;
+}
+.vec-arc {
+  stroke: var(--color-clay);
+  stroke-width: 1;
+  opacity: 0.7;
+}
+.vec-arc-fill {
+  fill: var(--color-clay-soft);
+  opacity: 0.6;
+}
+.sim-track {
+  position: relative;
+  height: 8px;
+  background: var(--color-dunes);
+  border: 1px solid var(--color-hairline);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.sim-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--color-clay);
+  opacity: 0.75;
+  transition: width 0.08s linear;
+}
+.sim-center {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-ink-4);
+}
+
+/* probability */
+.prob-curve {
+  stroke: var(--color-clay);
+  stroke-width: 2;
+}
+.prob-shade {
+  fill: var(--color-clay-soft);
+}
+.prob-mean {
+  stroke: var(--color-ink-4);
+  stroke-dasharray: 3 3;
+  stroke-width: 1;
+}
+
+/* pca */
+.pca-axis1 {
+  stroke: var(--color-clay);
+  stroke-width: 2;
+}
+.pca-axis2 {
+  stroke: var(--color-pine);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+.pca-dot {
+  fill: var(--color-ink-3);
+  opacity: 0.6;
+}
+.pca-proj {
+  fill: var(--color-clay);
+}
+.pca-drop {
+  stroke: var(--color-hairline-strong);
+  stroke-width: 1;
+}
+
+/* before / after */
+.ba-card {
+  border: 1px solid var(--color-hairline);
+  background: var(--color-card);
+  border-radius: var(--radius-sharp);
+  padding: 1.25rem;
+}
+.ba-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--color-ink);
+  margin: 0.5rem 0 0.75rem;
+}
+.ba-unit {
+  margin-left: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.4em;
+  color: var(--color-clay);
+}
+.ba-track {
+  position: relative;
+  height: 10px;
+  background: var(--color-dunes);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.ba-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, var(--color-clay), var(--color-clay-bright));
+  transition: width 0.06s linear;
+}
+
+/* ===========================
+   HERO TRANSFORM VISUAL
+=========================== */
+.hero-transform-wrap {
+  border: 1px solid var(--color-hairline);
+  background: var(--color-card);
+  border-radius: var(--radius-sharp-lg);
+  padding: 1.25rem;
+  box-shadow: var(--panel-shadow);
+}
+.hero-transform {
+  margin: 0;
+}
+.ht-edge {
+  stroke: var(--color-clay-line);
+  stroke-width: 1;
+  opacity: 0.4;
+  stroke-dasharray: 3 6;
+}
+.hero-transform.is-live .ht-edge {
+  animation: dashFlow 3s linear infinite;
+}
+.ht-edge-out {
+  stroke: var(--color-clay);
+  opacity: 0.6;
+}
+.ht-node {
+  fill: var(--color-card);
+  stroke: var(--color-clay);
+  stroke-width: 1.5;
+}
+.hero-transform.is-live .ht-node,
+.hero-transform.is-live .ht-embed {
+  animation: softPulse 3s ease-in-out infinite;
+}
+.ht-glyph {
+  fill: var(--color-ink-2);
+  font-family: var(--font-mono);
+  font-size: 20px;
+}
+.ht-embed {
+  fill: var(--color-clay);
+}
+.ht-emb-halo {
+  fill: var(--color-clay-soft);
+  opacity: 0.7;
+  stroke: var(--color-clay-line);
+  stroke-dasharray: 2 4;
+}
+.ht-label {
+  fill: var(--color-ink-3);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+.ht-arrowhead {
+  fill: var(--color-clay);
+}
+
+@keyframes softPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ===========================
+   JOURNEY RAIL
+=========================== */
+.journey-rail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.journey-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--color-hairline);
+}
+.journey-step:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.journey-index {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--color-ink-4);
+}
+.journey-step:not(:last-child) .journey-index::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 2rem;
+  bottom: -1.6rem;
+  width: 1px;
+  background: var(--color-clay-line);
+}
+.journey-body {
+  min-width: 0;
+}
+
+/* ===========================
+   HOW I THINK FLOW
+=========================== */
+.think-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0;
+}
+.think-step-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.think-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-hairline);
+  background: var(--color-card);
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sharp);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-ink-2);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.think-step:hover {
+  border-color: var(--color-clay-line);
+  color: var(--color-ink);
+}
+.think-step.is-active {
+  border-color: var(--color-clay);
+  background: var(--color-clay-soft);
+  color: var(--color-clay);
+}
+.think-step-n {
+  color: var(--color-ink-4);
+}
+.think-step.is-active .think-step-n {
+  color: var(--color-clay);
+}
+.think-arrow {
+  color: var(--color-clay-line);
+  font-size: 0.8rem;
+  margin: 0 0.15rem;
+}
+
+/* ===========================
+   EQUATION → SYSTEM
+=========================== */
+.eq-seed {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.eq-glyph {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 10vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-clay);
+}
+.eq-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-ink-3);
+}
+.eq-layers {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.eq-layer {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem;
+  align-items: baseline;
+  padding: 1.05rem 1.25rem;
+  border: 1px solid var(--color-hairline);
+  border-bottom: 0;
+  background: var(--color-card);
+}
+.eq-layer:first-child {
+  border-top-left-radius: var(--radius-sharp);
+  border-top-right-radius: var(--radius-sharp);
+}
+.eq-layer:last-child {
+  border-bottom: 1px solid var(--color-hairline);
+  border-bottom-left-radius: var(--radius-sharp);
+  border-bottom-right-radius: var(--radius-sharp);
+}
+.eq-layer-n {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-clay);
+}
+
+/* ===========================
+   SKILLS TIERS
+=========================== */
+.skill-flow-chip {
+  border: 1px solid var(--color-hairline-strong);
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-sharp);
+  color: var(--color-ink-2);
+}
+.skill-block-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.skill-flow-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-clay);
+  white-space: nowrap;
+}
+
+/* ===========================
+   EXPERIENCE STRATA
+=========================== */
+.exp-ladder {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.exp-ladder-step {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-ink-2);
+}
+.exp-ladder-n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--color-clay);
+  color: var(--color-clay);
+  font-size: 0.62rem;
+}
+.exp-strata {
+  display: flex;
+  flex-direction: column;
+}
+.exp-layer {
+  position: relative;
+  padding: 0 0 2.5rem 1.75rem;
+  margin-left: 7px;
+  border-left: 1px solid var(--color-hairline);
+}
+.exp-layer:last-child {
+  padding-bottom: 0;
+}
+.exp-layer::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid var(--color-clay);
+  background: var(--color-paper);
+}
+.exp-layer-tag {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-clay);
+  border: 1px solid var(--color-clay-line);
+  background: var(--color-clay-soft);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sharp);
+}
+
+/* ===========================
+   CASE STUDIES
+=========================== */
+.case-study {
+  border: 1px solid var(--color-hairline);
+  background: var(--color-card);
+  border-radius: var(--radius-sharp-lg);
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+.case-head {
+  border-bottom: 1px solid var(--color-hairline);
+  padding-bottom: 1.5rem;
+}
+.case-n {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1;
+  color: var(--color-ink-4);
+}
+.case-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 1.5rem 0 0;
+}
+.case-field {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px dashed var(--color-hairline);
+}
+.case-field-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-clay);
+}
+.case-field-body {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--color-ink-2);
+}
+@media (width < 768px) {
+  .case-field {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+/* Reduced motion: keep every visual fully readable, just not animated */
+@media (prefers-reduced-motion: reduce) {
+  .nn-svg.is-live .nn-edge,
+  .hero-transform.is-live .ht-edge,
+  .hero-transform.is-live .ht-node,
+  .hero-transform.is-live .ht-embed {
+    animation: none;
+  }
+  .ba-fill,
+  .sim-fill {
+    transition: none;
+  }
+}

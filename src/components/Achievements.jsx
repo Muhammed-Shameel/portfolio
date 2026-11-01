@@ -6,9 +6,10 @@ export default function Achievements() {
   return (
     <Section
       id="achievements"
-      index="06"
-      label="Achievements"
+      index="10"
+      label="Recognition"
       title="Recognition & Certificates"
+      alternate
       wide={false}
     >
       <div className="grid gap-12 md:grid-cols-12">

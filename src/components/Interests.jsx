@@ -6,10 +6,9 @@ export default function Interests() {
   return (
     <Section
       id="interests"
-      index="07"
+      index="11"
       label="Interests"
       title="Beyond the Deliverables"
-      alternate
       rule
       wide={false}
     >

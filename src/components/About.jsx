@@ -1,6 +1,6 @@
 import Section from "./Section"
 import Reveal from "./Reveal"
-import { statement, terminalProfile, skillGroups } from "../data/portfolio"
+import { statement, terminalProfile, skillTiers } from "../data/portfolio"
 
 const indentClass = ["", "pl-6", "pl-12"]
 const tokenClass = {
@@ -17,10 +17,9 @@ export default function About() {
   return (
     <Section
       id="about"
-      index="01"
-      label="About"
-      title="Statement"
-      alternate
+      index="02"
+      label="Statement"
+      title="The Way In"
       rule
       wide={false}
     >
@@ -74,7 +73,7 @@ export default function About() {
         </Reveal>
 
         <div className="grid gap-4 md:col-span-5">
-          {skillGroups.slice(0, 4).map((group, i) => (
+          {skillTiers.map((group, i) => (
             <Reveal
               key={group.title}
               variant="reveal-fade"
@@ -82,7 +81,7 @@ export default function About() {
               className="flex items-baseline justify-between gap-6 border-b border-hairline pb-3"
             >
               <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-ink-3">
-                {group.title}
+                <span className="text-clay">{group.flow} ·</span> {group.title}
               </span>
               <span className="text-right text-[0.9rem] font-medium text-ink">
                 {group.items.slice(0, 3).join(" · ")}

@@ -6,10 +6,9 @@ export default function Education() {
   return (
     <Section
       id="education"
-      index="05"
+      index="09"
       label="Education"
-      title="Academic Journey"
-      alternate
+      title="Two Degrees"
       rule
       wide={false}
     >
