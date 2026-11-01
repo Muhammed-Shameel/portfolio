@@ -12,7 +12,7 @@ function HeroLink({ href, download, target, label, icon }) {
       download={download}
       target={target}
       rel={target ? "noreferrer" : undefined}
-      className="focus-ring group inline-flex items-center gap-3 border-b border-hairline pb-2 font-mono text-[0.78rem] uppercase tracking-[0.16em] text-ink transition-colors hover:border-clay hover:text-clay"
+      className="focus-ring group inline-flex items-center gap-3 border-b border-hairline pb-2 font-mono text-[0.78rem] uppercase tracking-[0.16em] text-ink transition-colors hover:border-ink-2 hover:text-ink-2"
     >
       {label}
       <i className={icon} aria-hidden="true" />
@@ -32,13 +32,12 @@ export default function Hero() {
       className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-paper pt-[72px]"
     >
       <div className="hero-grid" />
-      <div className="hero-glow glow-warm animate-float-glow" />
       <div className="grain" />
 
       {/* corner meta */}
       <div className="absolute left-6 top-28 hidden max-w-[240px] font-mono text-[0.7rem] uppercase tracking-[0.18em] text-ink-3 xl:left-8 xl:block">
         <p>Abu Dhabi, United Arab Emirates</p>
-        <p className="mt-1 text-clay">{profile.availability}</p>
+        <p className="mt-1 text-ink-2">{profile.availability}</p>
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 py-20 md:px-10">
@@ -50,48 +49,28 @@ export default function Hero() {
               variant="reveal-fade"
               className="mb-6 flex flex-wrap items-center gap-3 font-mono text-[0.72rem] uppercase tracking-[0.2em] text-ink-3"
             >
-              <span className="h-px w-10 bg-clay" />
+              <span className="h-px w-10 bg-ink-3" />
               Data Scientist · BSc Mathematics → ML
             </Reveal>
 
+            {/* the name leads — large */}
             <h1 className="display-xl">
               <Reveal as="span" variant="reveal-rise" delay={1} className="block text-ink">
-                From Mathematics
+                {profile.firstName}
               </Reveal>
-              <Reveal as="span" variant="reveal-rise" delay={2} className="block">
-                <span className="outline-clay">to Machine Learning.</span>
+              <Reveal as="span" variant="reveal-rise" delay={2} className="block text-ink">
+                {profile.lastName}
               </Reveal>
             </h1>
 
-            <Reveal
-              as="p"
-              variant="reveal-fade"
-              delay={3}
-              className="mt-6 max-w-[520px] font-mono text-[0.82rem] leading-[2] text-ink-2"
-            >
-              {heroIdentity.support[0]}
-              <br />
-              <span className="text-clay">{heroIdentity.support[1]}</span>
-            </Reveal>
-
-            <Reveal
-              as="p"
-              delay={4}
-              className="mt-8 max-w-[560px] text-[0.95rem] leading-[1.85] text-ink-3"
-            >
-              {profile.heroBio}
-            </Reveal>
-
-            {/* identity + role */}
+            {/* role */}
             <Reveal
               as="div"
-              delay={5}
-              className="mt-10 flex flex-wrap items-baseline gap-x-6 gap-y-2"
+              variant="reveal-fade"
+              delay={3}
+              className="mt-4 flex flex-wrap items-baseline gap-x-5 gap-y-2"
             >
-              <span className="font-display text-[1.4rem] font-bold tracking-[-0.02em] text-ink">
-                {profile.firstName} {profile.lastName}
-              </span>
-              <span className="font-mono text-[0.82rem] uppercase tracking-[0.16em] text-clay">
+              <span className="font-mono text-[0.95rem] uppercase tracking-[0.24em] text-ink">
                 {profile.role}
               </span>
               <span className="min-h-[1.5em] font-mono text-[0.8rem] text-ink-3">
@@ -101,9 +80,38 @@ export default function Hero() {
               </span>
             </Reveal>
 
+            {/* the identity statement */}
+            <Reveal
+              as="p"
+              variant="reveal-rise"
+              delay={4}
+              className="mt-9 font-display text-[1.6rem] font-bold leading-[1.05] tracking-[-0.03em] text-ink md:text-[2.4rem]"
+            >
+              From Mathematics{" "}
+              <span className="outline-clay">to Machine Learning.</span>
+            </Reveal>
+
+            {/* supporting line — the brief's exact positioning */}
+            <Reveal
+              as="p"
+              variant="reveal-fade"
+              delay={5}
+              className="mt-5 max-w-[540px] text-[1rem] leading-[1.7] text-ink-2 md:text-[1.1rem]"
+            >
+              {heroIdentity.tagline}
+            </Reveal>
+
+            <Reveal
+              as="p"
+              delay={5}
+              className="mt-5 max-w-[560px] text-[0.92rem] leading-[1.85] text-ink-3"
+            >
+              {profile.heroBio}
+            </Reveal>
+
             <Reveal
               delay={6}
-              className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4"
+              className="mt-11 flex flex-wrap items-center gap-x-8 gap-y-4"
             >
               <HeroLink
                 href="#projects"
@@ -111,8 +119,8 @@ export default function Hero() {
                 icon="fa fa-arrow-right transition-transform group-hover:translate-x-1"
               />
               <HeroLink
-                href="#journey"
-                label="The journey"
+                href="#why"
+                label="Why data science"
                 icon="fa fa-arrow-down transition-transform group-hover:translate-y-1"
               />
               <HeroLink

@@ -25,6 +25,8 @@ export const profile = {
 /* The one idea the whole site is built around */
 export const heroIdentity = {
   statement: "From Mathematics to Machine Learning.",
+  tagline:
+    "I use mathematics, statistics and machine learning to understand problems, build models and turn experiments into working systems.",
   support: [
     "Mathematics gave me the foundation.",
     "Machine learning is where I am learning to apply it.",
@@ -58,7 +60,7 @@ export const socials = {
 }
 
 export const navLinks = [
-  { id: "journey", label: "Journey" },
+  { id: "why", label: "Why DS" },
   { id: "thinking", label: "Approach" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
@@ -69,8 +71,8 @@ export const navLinks = [
 /* Every anchored section, in page order — drives the right-edge scroll spine */
 export const sectionIds = [
   { id: "hero", label: "Intro" },
-  { id: "journey", label: "Journey" },
-  { id: "about", label: "Statement" },
+  { id: "why", label: "Why Data Science" },
+  { id: "about", label: "How I got here" },
   { id: "thinking", label: "How I think" },
   { id: "systems", label: "Equation → System" },
   { id: "experience", label: "Experience" },
@@ -128,6 +130,208 @@ export const journey = [
   },
 ]
 
+/* ---------------- Why Data Science? — clickable layers, each with a live viz --
+   The five stages of how a mathematics problem becomes a running system.
+   `viz` picks which interactive visual the right-hand panel shows. */
+export const whyDataScience = {
+  intro:
+    "People ask why data science instead of pure mathematics. Click down the stack — every layer is a thing I can actually show you, not a word on a CV.",
+  layers: [
+    {
+      key: "mathematics",
+      name: "Mathematics",
+      glyph: "ℝⁿ · ∑ · ∫",
+      items: ["Vectors", "Matrices", "Probability", "Statistics", "Optimisation"],
+      caption:
+        "Everything else is built on this — space, structure, change and uncertainty. Vectors and the dot product are already how a model sees the world.",
+      viz: "vectors",
+    },
+    {
+      key: "data",
+      name: "Data",
+      glyph: "X → y",
+      items: ["Messy datasets", "Features", "Patterns", "Relationships", "Uncertainty"],
+      caption:
+        "Real data is incomplete and noisy. Modelling it honestly means modelling the uncertainty — a prediction is a distribution, not a single number.",
+      viz: "distribution",
+    },
+    {
+      key: "ml",
+      name: "Machine Learning",
+      glyph: "ŷ = f(X; θ)",
+      items: ["Regression", "Classification", "Ensembles", "Representation", "Evaluation"],
+      caption:
+        "A model is a decision boundary drawn over that structure. The interesting question is never just the score — it is where the boundary is wrong.",
+      viz: "boundary",
+    },
+    {
+      key: "ai",
+      name: "Applied AI",
+      glyph: "∇ · embeddings",
+      items: ["Computer Vision", "RAG", "Embeddings", "Agents"],
+      caption:
+        "Neural networks turn raw inputs into representations a system can reason over — the point where linear algebra and calculus stop being abstract.",
+      viz: "neural",
+    },
+    {
+      key: "systems",
+      name: "Systems",
+      glyph: "deploy",
+      items: ["APIs", "Inference", "Optimisation", "Deployment"],
+      caption:
+        "A model only matters once it runs somewhere a person can reach it. This is where I am still growing fastest — and like building in.",
+      viz: "pipeline",
+    },
+  ],
+}
+
+/* ---------------- About: the 10-second journey (§20) ---------------- */
+export const aboutTimeline = [
+  {
+    when: "BSc · 2024",
+    title: "Mathematics",
+    note: "Linear algebra, probability, statistics, optimisation — the part of ML I do not have to take on faith.",
+  },
+  {
+    when: "MSc · 2026",
+    title: "Data Science & Business Analytics",
+    note: "Statistics turned outward: ML, deep learning, RAG and agents, with a Data Engineering specialisation.",
+  },
+  {
+    when: "2026",
+    title: "Applied AI & data experience",
+    note: "Three internships up the stack — cloud & data → agentic AI → applied AI, on real systems.",
+  },
+  {
+    when: "2025 – now",
+    title: "Machine Learning / AI projects",
+    note: "Grocery AI and the Premier League analysis, built, measured and shipped — not left in a notebook.",
+  },
+  {
+    when: "now",
+    title: "Deepening ML + AI + engineering",
+    note: "Graph networks, LLMs, production ML. Deliberately getting stronger, one layer at a time.",
+  },
+]
+
+/* ---------------- Interactive RAG (Grocery AI) — §10 ----------------
+   The pipeline and index numbers are the real ones. The example chunks /
+   answers are illustrative of how a query flows through it, not logged output. */
+export const ragDemo = {
+  note:
+    "Real architecture and index — 2,543 Chroma chunks across 68 subjects, 0.20 grounding threshold. The example questions and retrieved chunks below are illustrative of the flow, not logged outputs.",
+  stats: [
+    { k: "chunks", v: "2,543" },
+    { k: "subjects", v: "68" },
+    { k: "grounding ≥", v: "0.20" },
+  ],
+  questions: [
+    {
+      q: "How should I store fresh basil?",
+      chunks: [
+        {
+          t: "Basil keeps best with its stems in water at room temperature, out of direct sun; refrigeration blackens the leaves.",
+          s: 0.74,
+        },
+        {
+          t: "Soft herbs lose moisture quickly — do not seal them in plastic; a loose cover slows wilting without trapping condensation.",
+          s: 0.41,
+        },
+        {
+          t: "Refrigerating tropical produce below 10°C causes chilling injury and surface pitting.",
+          s: 0.22,
+        },
+      ],
+      a: "Keep basil on the counter with its stems in water, away from direct sun. Refrigerating it blackens the leaves.",
+    },
+    {
+      q: "Can I freeze bread, and for how long?",
+      chunks: [
+        {
+          t: "Sliced bread freezes well for up to about three months; wrap it tightly to prevent freezer burn and thaw at room temperature.",
+          s: 0.68,
+        },
+        {
+          t: "Staling is fastest between 0–10°C, so a refrigerator is worse for bread than a freezer.",
+          s: 0.35,
+        },
+        {
+          t: "High-moisture fillings separate over freeze–thaw; freeze the base and add the filling after.",
+          s: 0.21,
+        },
+      ],
+      a: "Yes — freeze sliced bread, tightly wrapped, for up to roughly three months. Skip the fridge; cold speeds staling.",
+    },
+    {
+      q: "Should tomatoes go in the fridge?",
+      chunks: [
+        {
+          t: "Whole ripe tomatoes keep best at room temperature for a few days; refrigeration dulls flavour and makes the texture mealy.",
+          s: 0.71,
+        },
+        {
+          t: "Once cut, tomatoes should be refrigerated and used within a day or two.",
+          s: 0.44,
+        },
+        {
+          t: "Storing produce ethylene-rich and ethylene-sensitive together speeds spoilage.",
+          s: 0.23,
+        },
+      ],
+      a: "Keep whole tomatoes on the counter; the fridge flattens their flavour. Refrigerate them only once cut.",
+    },
+  ],
+}
+
+/* ---------------- Computer-vision interaction (Grocery AI) — §11 ------------
+   A simplified illustration of the classifier's output shape. It is NOT the
+   live production model running in the browser — do not imply that it is. */
+export const classifyDemo = {
+  note:
+    "A simplified illustration of the classifier's output shape — top-3 probabilities per item. It is not the live production model running in your browser.",
+  stages: ["Input", "Feature extraction", "CNN", "Prediction"],
+  items: [
+    {
+      label: "Apple",
+      probs: [
+        { c: "Apple", p: 0.94 },
+        { c: "Pear", p: 0.04 },
+        { c: "Orange", p: 0.02 },
+      ],
+    },
+    {
+      label: "Banana",
+      probs: [
+        { c: "Banana", p: 0.91 },
+        { c: "Plantain", p: 0.06 },
+        { c: "Mango", p: 0.03 },
+      ],
+    },
+    {
+      label: "Orange",
+      probs: [
+        { c: "Orange", p: 0.88 },
+        { c: "Lemon", p: 0.07 },
+        { c: "Peach", p: 0.05 },
+      ],
+    },
+  ],
+}
+
+/* ---------------- Ability factors (Premier League) — §13 ----------------
+   Illustrative factor profiles from the derived 5-factor model, to show how a
+   player's representation changes as you switch which latent abilities you keep. */
+export const abilityFactors = {
+  note:
+    "Illustrative profiles from the derived 5-factor model (36 columns → 5 factors). Toggling shows the same player read under different latent abilities — the point is that I look for structure, not columns.",
+  factors: ["Passing", "Shooting", "Creativity", "Dribbling", "Defense"],
+  players: [
+    { name: "Playmaker", values: { Passing: 0.9, Shooting: 0.5, Creativity: 0.85, Dribbling: 0.7, Defense: 0.3 } },
+    { name: "Complete forward", values: { Passing: 0.7, Shooting: 0.9, Creativity: 0.6, Dribbling: 0.75, Defense: 0.35 } },
+    { name: "Ball-winning defender", values: { Passing: 0.5, Shooting: 0.3, Creativity: 0.4, Dribbling: 0.35, Defense: 0.9 } },
+  ],
+}
+
 /* ---------------- How I think ---------------- */
 export const howIThink = {
   title: "I don't want to just use the model. I want to understand why it works.",
@@ -147,34 +351,39 @@ export const howIThink = {
   anti: "dataset → model.fit() → accuracy",
 }
 
-/* ---------------- From equation to system ---------------- */
+/* ---------------- From equation to production ---------------- */
 export const equationToSystem = {
   seed: "ŷ = f(X; θ)",
   layers: [
     { label: "Equation", note: "A claim about how output depends on input." },
-    { label: "Model", note: "That claim, parameterised and trainable." },
-    { label: "Training data", note: "The evidence the claim is fit to." },
-    { label: "Evaluation", note: "Whether it generalises or just memorised." },
-    { label: "API", note: "A contract so the result is callable." },
-    { label: "Deployed application", note: "Something a person can actually use." },
+    { label: "Dataset", note: "The evidence the claim is fit against." },
+    { label: "Features", note: "Raw signal shaped into something usable." },
+    { label: "Model", note: "The claim, parameterised and trainable." },
+    { label: "Training", note: "Fitting θ by optimising a loss you chose on purpose." },
+    { label: "Evaluation", note: "Does it generalise, or did it just memorise?" },
+    { label: "Optimisation", note: "Small and fast enough to actually run (ONNX, quantisation)." },
+    { label: "API", note: "A contract, so the result is callable." },
+    { label: "Deployment", note: "Shipped to a server or a browser, not a notebook." },
+    { label: "Application", note: "Something a person can open and rely on." },
   ],
-  point: "Machine learning is not just maths and not just code. It is mathematics + data + experiments + engineering, held together.",
+  point: "Machine learning is not just maths and not just code. It is mathematics + data + experiments + engineering, held together — and I am learning to hold all of it.",
 }
 
-/* ---------------- Currently learning (honest, no fake mastery) ---------------- */
+/* ---------------- Currently learning (honest, no fake mastery) ----------------
+   depth is a qualitative 1–5 tier, drawn as blocks — never a fake percentage. */
 export const currentlyLearning = {
   intro:
     "I am not finished. This is where I am actively building depth right now — not a list of things I have already mastered.",
   /* status is a plain word, not a fake percentage */
   areas: [
-    { title: "Machine Learning fundamentals", status: "deepening" },
-    { title: "Deep Learning", status: "learning" },
-    { title: "Graph Neural Networks", status: "learning" },
-    { title: "Large Language Models", status: "building with" },
-    { title: "Retrieval-Augmented Generation", status: "building with" },
-    { title: "AI Agents", status: "building with" },
-    { title: "Model Context Protocol (MCP)", status: "exploring" },
-    { title: "ML Systems & Production ML", status: "going deeper" },
+    { title: "Machine Learning fundamentals", status: "deepening", depth: 4 },
+    { title: "Deep Learning", status: "learning", depth: 3 },
+    { title: "Graph Neural Networks", status: "learning", depth: 2 },
+    { title: "Large Language Models", status: "building with", depth: 3 },
+    { title: "Retrieval-Augmented Generation", status: "building with", depth: 4 },
+    { title: "AI Agents", status: "building with", depth: 3 },
+    { title: "Model Context Protocol (MCP)", status: "exploring", depth: 2 },
+    { title: "ML Systems & Production ML", status: "going deeper", depth: 3 },
   ],
 }
 
@@ -186,6 +395,7 @@ export const experiences = [
     location: "Kerala, India",
     status: "valid",
     layer: "Applied AI",
+    problem: "Support knowledge was scattered across documents and thousands of past tickets, so every investigation started from scratch.",
     stack: ["FastAPI", "React", "RAG", "LLM Gateway", "Python"],
     metric: "2,000+ support tickets / month triaged through the platform",
     bullets: [
@@ -201,6 +411,7 @@ export const experiences = [
     location: "Kerala, India",
     status: "valid",
     layer: "Agentic AI",
+    problem: "Member, trainer and operational data lived in separate places that no single report connected.",
     stack: ["LangGraph", "FastAPI", "LLM", "Python"],
     bullets: [
       "Stateful LangGraph workflows that synthesise member, trainer and operational data into business reports",
@@ -215,6 +426,7 @@ export const experiences = [
     location: "Kerala, India",
     status: "valid",
     layer: "Cloud & Data",
+    problem: "Flood risk across 85+ regions had to be readable by decision-makers, not buried in a notebook.",
     stack: ["Python", "FastAPI", "Docker", "Render", "Vercel"],
     metric: "Flood intelligence across 85+ regions (FLUVIO)",
     bullets: [
@@ -230,6 +442,7 @@ export const experiences = [
     location: "Remote",
     status: "valid",
     layer: "Foundation",
+    problem: "Students could run a method but not explain it — the same gap I now check for in models.",
     stack: [],
     bullets: [
       "Delivered one-to-one mathematics tutoring to undergraduate and high-school students",
@@ -521,7 +734,7 @@ export const interestsExtra = [
   {
     title: "Teaching",
     detail:
-      "A year of one-to-one mathematics tutoring still shapes how I present results — to a reviewer, and to myself.",
+      "Tutoring mathematics one-to-one still shapes how I present results — to a reviewer, and to myself. Explaining a method is how I check I understand it.",
   },
 ]
 

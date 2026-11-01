@@ -6,6 +6,16 @@ import { useInView } from "../hooks/useInView"
    travelling signal is CSS dash-flow (.ht-edge) so it costs nothing when the
    section is off-screen or motion is reduced. */
 const GLYPHS = ["∑", "π", "∫", "θ", "√"]
+// Embeddings are the one place colour blooms fully — the "intelligence"
+// that the quiet monochrome frame produces.
+const EMB_COLORS = [
+  "var(--data-a)",
+  "var(--data-b)",
+  "var(--data-c)",
+  "var(--data-d)",
+  "var(--data-e)",
+  "var(--data-f)",
+]
 
 const MATH_X = 40
 const IN_X = 168
@@ -97,15 +107,33 @@ export default function HeroTransform() {
           </text>
         ))}
 
-        {/* neurons */}
-        {[...net.input, ...net.hidden, ...net.output].map((n, i) => (
-          <circle key={n.id} cx={n.x} cy={n.y} r={6} className="ht-node" style={{ animationDelay: `${(i % 7) * 0.25}s` }} />
+        {/* neurons — input blue → hidden orange → output green */}
+        {[
+          ...net.input.map((n) => ({ ...n, fill: "var(--data-d)" })),
+          ...net.hidden.map((n) => ({ ...n, fill: "var(--data-a)" })),
+          ...net.output.map((n) => ({ ...n, fill: "var(--data-b)" })),
+        ].map((n, i) => (
+          <circle
+            key={n.id}
+            cx={n.x}
+            cy={n.y}
+            r={6}
+            className="ht-node"
+            style={{ fill: n.fill, fillOpacity: 0.85, animationDelay: `${(i % 7) * 0.25}s` }}
+          />
         ))}
 
         {/* embedding cluster */}
         <circle cx={EMB_X} cy={150} r={54} className="ht-emb-halo" />
         {embeddings.map((p, i) => (
-          <circle key={`e${i}`} cx={p.x} cy={p.y} r={4} className="ht-embed" style={{ animationDelay: `${(i % 6) * 0.3}s` }} />
+          <circle
+            key={`e${i}`}
+            cx={p.x}
+            cy={p.y}
+            r={4}
+            className="ht-embed"
+            style={{ fill: EMB_COLORS[i % EMB_COLORS.length], animationDelay: `${(i % 6) * 0.3}s` }}
+          />
         ))}
 
         {/* column labels */}

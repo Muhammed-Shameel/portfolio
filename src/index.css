@@ -6,36 +6,44 @@
 =========================== */
 @theme {
   /* Backgrounds */
-  --color-paper: #f6f3ed;
-  --color-paper-2: #efeae1;
-  --color-dunes: #e8e1d4;
-  --color-card: #fffdf7;
+  /* ============================
+     MONOCHROME INTERFACE — the chrome is black / white / gray.
+     The accent token NAMES are kept (so existing utilities just turn
+     neutral) but their VALUES are now grayscale. Colour is reserved for
+     DATA — see the --data-* palette at the bottom of this block.
+     "The interface is quiet. The data speaks."
+     ============================ */
+  --color-paper: #fafaf9;
+  --color-paper-2: #f1f1ef;
+  --color-dunes: #e8e8e5;
+  --color-card: #ffffff;
 
-  /* Ink text scale — measured against #F6F3ED: ink 14:1, ink-2 10:1,
-     ink-3 5.5:1, ink-4 4.1:1 (ink-4 carries only large or decorative marks) */
-  --color-ink: #26241e;
-  --color-ink-2: #3f3b34;
-  --color-ink-3: #6a6250;
-  --color-ink-4: #7e7566;
+  /* Neutral ink scale — measured on #FAFAF9: ink 16:1, ink-2 8.4:1,
+     ink-3 4.7:1, ink-4 3.4:1 (ink-4 only large/decorative marks) */
+  --color-ink: #141416;
+  --color-ink-2: #494950;
+  --color-ink-3: #82828a;
+  --color-ink-4: #9c9ca3;
 
-  /* Accents — clay/pine/amber sit at or above 4.5:1 as small mono text */
-  --color-clay: #b7511d;
-  --color-clay-bright: #d97742;
-  --color-clay-dark: #9e4517;
-  --color-pine: #266658;
-  --color-amber: #9e6414;
-  --color-slateish: #4a5568;
+  /* "Accents" are now neutral grays — used only for subtle chrome
+     emphasis (section labels, hover, borders), never as colour. */
+  --color-clay: #3a3a41;
+  --color-clay-bright: #141416;
+  --color-clay-dark: #141416;
+  --color-pine: #6e6e75;
+  --color-amber: #6e6e75;
+  --color-slateish: #55555c;
 
-  /* Charcoal code block */
-  --color-charcoal: #26241e;
-  --color-charcoal-2: #1c1a15;
+  /* Near-black surfaces (terminal / code — a data surface, stays coloured) */
+  --color-charcoal: #141416;
+  --color-charcoal-2: #0c0c0e;
 
-  /* Warm hairlines & soft accent washes */
-  --color-hairline: rgb(38 36 30 / 0.12);
-  --color-hairline-strong: rgb(38 36 30 / 0.24);
-  --color-clay-soft: rgb(183 81 29 / 0.1);
-  --color-clay-soft-strong: rgb(183 81 29 / 0.18);
-  --color-clay-line: rgb(183 81 29 / 0.28);
+  /* Neutral hairlines & faint washes */
+  --color-hairline: rgb(20 20 22 / 0.12);
+  --color-hairline-strong: rgb(20 20 22 / 0.22);
+  --color-clay-soft: rgb(20 20 22 / 0.05);
+  --color-clay-soft-strong: rgb(20 20 22 / 0.09);
+  --color-clay-line: rgb(20 20 22 / 0.2);
 
   /* Typography */
   --font-display: "Space Grotesk", sans-serif;
@@ -50,17 +58,33 @@
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Theme-tunable surfaces & effects (overridden wholesale in html.dark) */
-  --color-terminal-fg: #ede7da;
-  --color-terminal-meta: #8f8776;
-  --color-danger: #b43c28;
-  --panel-shadow: 0 24px 64px rgb(38 36 30 / 0.22);
-  --grain-opacity: 0.035;
+  --color-terminal-fg: #edeade;
+  --color-terminal-meta: #8f8c80;
+  --color-danger: #cf5c46;
+  --panel-shadow: 0 24px 64px rgb(20 20 22 / 0.14);
+  --grain-opacity: 0.025;
   --outline-stroke: 0.28vw;
-  --hero-grid-line: rgb(183 81 29 / 0.05);
-  --glow-clay: rgb(183 81 29 / 0.1);
-  --glow-amber: rgb(158 100 20 / 0.09);
-  --cursor-ring: rgb(38 36 30 / 0.3);
-  --theme-color: #f6f3ed;
+  --hero-grid-line: rgb(20 20 22 / 0.04);
+  /* Glow is deliberately switched OFF — the brief bans glowing cards. */
+  --glow-clay: transparent;
+  --glow-amber: transparent;
+  --cursor-ring: rgb(20 20 22 / 0.28);
+  --theme-color: #fafaf9;
+
+  /* ============================
+     DATA PALETTE — the only colour on the site.
+     Used inside visualisations: neural nets, vectors, distributions,
+     PCA, before/after, RAG relevance, class probabilities.
+     Restrained & categorical, never neon, readable on both themes.
+     ============================ */
+  --data-a: #e0663f; /* warm orange — primary series / signal / emphasis */
+  --data-b: #2fa37d; /* green — positive / good / output */
+  --data-c: #c9922b; /* amber — highlight / secondary */
+  --data-d: #4f72c4; /* blue — input / a distinct class */
+  --data-e: #8e5aa8; /* violet — a distinct class (sparingly) */
+  --data-f: #2e8c8c; /* teal — a distinct class */
+  --data-good: #2fa37d;
+  --data-bad: #d1583f;
 }
 
 /* ===========================
@@ -74,48 +98,47 @@
 html.dark {
   color-scheme: dark;
 
-  /* Backgrounds — band separation widened slightly so the flip reads as depth */
-  --color-paper: #131210;
-  --color-paper-2: #1b1913;
-  --color-dunes: #2a251b;
-  --color-card: #1c1a15;
+  /* Backgrounds — neutral charcoal night, band separation as depth */
+  --color-paper: #0c0c0d;
+  --color-paper-2: #151517;
+  --color-dunes: #242427;
+  --color-card: #1a1a1d;
 
-  /* Ink text scale — every step clears 4.5:1 on #131210 */
-  --color-ink: #ede7da;
-  --color-ink-2: #c9c1b1;
-  --color-ink-3: #a39b8d;
-  --color-ink-4: #8b8271;
+  /* Ink text scale — every step clears 4.5:1 on #0C0C0D */
+  --color-ink: #f4f4f3;
+  --color-ink-2: #bcbcc1;
+  --color-ink-3: #86868d;
+  --color-ink-4: #6d6d74;
 
-  /* Accents — lifted so they glow evenly against the charcoal base.
-     clay-dark is the hover/emphasis counterpart: deeper on paper,
-     brighter on charcoal. */
-  --color-clay: #e87940;
-  --color-clay-bright: #f4a070;
-  --color-clay-dark: #f4a070;
-  --color-pine: #5fc0a3;
-  --color-amber: #e5b051;
-  --color-slateish: #9fb0ce;
+  /* Neutral "accents" — a lifted light gray reads as chrome emphasis here.
+     clay-dark / clay-bright are the hover/emphasis (near white on charcoal). */
+  --color-clay: #c9c9ce;
+  --color-clay-bright: #ffffff;
+  --color-clay-dark: #ffffff;
+  --color-pine: #9d9da4;
+  --color-amber: #9d9da4;
+  --color-slateish: #bcbcc1;
 
-  /* Charcoal code block — lifted above the page so it reads as a panel */
-  --color-charcoal: #1c1a15;
-  --color-charcoal-2: #17150f;
+  /* Near-black surfaces */
+  --color-charcoal: #0a0a0b;
+  --color-charcoal-2: #060607;
 
-  /* Warm hairlines & soft accent washes */
-  --color-hairline: rgb(237 231 218 / 0.12);
-  --color-hairline-strong: rgb(237 231 218 / 0.28);
-  --color-clay-soft: rgb(232 121 64 / 0.14);
-  --color-clay-soft-strong: rgb(232 121 64 / 0.22);
-  --color-clay-line: rgb(232 121 64 / 0.34);
+  /* Neutral hairlines & faint washes */
+  --color-hairline: rgb(244 244 243 / 0.12);
+  --color-hairline-strong: rgb(244 244 243 / 0.26);
+  --color-clay-soft: rgb(244 244 243 / 0.06);
+  --color-clay-soft-strong: rgb(244 244 243 / 0.1);
+  --color-clay-line: rgb(244 244 243 / 0.24);
 
   /* Effects */
   --panel-shadow: 0 24px 64px rgb(0 0 0 / 0.55);
-  --grain-opacity: 0.05;
+  --grain-opacity: 0.04;
   --outline-stroke: 0.32vw;
-  --hero-grid-line: rgb(232 121 64 / 0.07);
-  --glow-clay: rgb(232 121 64 / 0.17);
-  --glow-amber: rgb(229 176 81 / 0.12);
-  --cursor-ring: rgb(237 231 218 / 0.34);
-  --theme-color: #131210;
+  --hero-grid-line: rgb(244 244 243 / 0.05);
+  --glow-clay: transparent;
+  --glow-amber: transparent;
+  --cursor-ring: rgb(244 244 243 / 0.32);
+  --theme-color: #0c0c0d;
 }
 
 /* ===========================
@@ -818,7 +841,7 @@ body:has(.filter-bar:focus-within) .marquee-track {
   font-size: 12px;
 }
 .fill-clay {
-  fill: var(--color-clay);
+  fill: var(--data-a);
 }
 .fill-ink-3 {
   fill: var(--color-ink-3);
@@ -839,14 +862,17 @@ body:has(.filter-bar:focus-within) .marquee-track {
 }
 .nn-node {
   fill: var(--color-card);
-  stroke: var(--color-clay);
+  stroke: var(--color-ink-2);
   stroke-width: 1.5;
   cursor: pointer;
-  transition: fill 0.2s, r 0.2s;
+  transition:
+    fill 0.2s,
+    r 0.2s,
+    stroke 0.2s;
 }
-.nn-node:hover,
 .nn-node.is-active {
-  fill: var(--color-clay);
+  stroke: var(--color-ink);
+  stroke-width: 2.5;
 }
 .nn-node:focus-visible {
   outline: 2px solid var(--color-clay);
@@ -866,7 +892,7 @@ body:has(.filter-bar:focus-within) .marquee-track {
 
 /* vectors */
 .vec-line-clay {
-  stroke: var(--color-clay);
+  stroke: var(--data-a);
   stroke-width: 2.5;
 }
 .vec-line-ink {
@@ -874,13 +900,13 @@ body:has(.filter-bar:focus-within) .marquee-track {
   stroke-width: 2;
 }
 .vec-arc {
-  stroke: var(--color-clay);
+  stroke: var(--data-a);
   stroke-width: 1;
   opacity: 0.7;
 }
 .vec-arc-fill {
-  fill: var(--color-clay-soft);
-  opacity: 0.6;
+  fill: color-mix(in srgb, var(--data-a) 12%, transparent);
+  opacity: 0.7;
 }
 .sim-track {
   position: relative;
@@ -895,8 +921,8 @@ body:has(.filter-bar:focus-within) .marquee-track {
   top: 0;
   bottom: 0;
   left: 0;
-  background: var(--color-clay);
-  opacity: 0.75;
+  background: var(--data-a);
+  opacity: 0.85;
   transition: width 0.08s linear;
 }
 .sim-center {
@@ -910,11 +936,11 @@ body:has(.filter-bar:focus-within) .marquee-track {
 
 /* probability */
 .prob-curve {
-  stroke: var(--color-clay);
+  stroke: var(--data-a);
   stroke-width: 2;
 }
 .prob-shade {
-  fill: var(--color-clay-soft);
+  fill: color-mix(in srgb, var(--data-a) 15%, transparent);
 }
 .prob-mean {
   stroke: var(--color-ink-4);
@@ -924,11 +950,11 @@ body:has(.filter-bar:focus-within) .marquee-track {
 
 /* pca */
 .pca-axis1 {
-  stroke: var(--color-clay);
+  stroke: var(--data-a);
   stroke-width: 2;
 }
 .pca-axis2 {
-  stroke: var(--color-pine);
+  stroke: var(--data-b);
   stroke-width: 1.5;
   stroke-dasharray: 4 4;
 }
@@ -937,7 +963,7 @@ body:has(.filter-bar:focus-within) .marquee-track {
   opacity: 0.6;
 }
 .pca-proj {
-  fill: var(--color-clay);
+  fill: var(--data-d);
 }
 .pca-drop {
   stroke: var(--color-hairline-strong);
@@ -964,7 +990,7 @@ body:has(.filter-bar:focus-within) .marquee-track {
   margin-left: 0.35rem;
   font-family: var(--font-mono);
   font-size: 0.4em;
-  color: var(--color-clay);
+  color: var(--color-ink-3);
 }
 .ba-track {
   position: relative;
@@ -978,7 +1004,7 @@ body:has(.filter-bar:focus-within) .marquee-track {
   top: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(90deg, var(--color-clay), var(--color-clay-bright));
+  background: var(--data-a);
   transition: width 0.06s linear;
 }
 
@@ -1010,7 +1036,7 @@ body:has(.filter-bar:focus-within) .marquee-track {
 }
 .ht-node {
   fill: var(--color-card);
-  stroke: var(--color-clay);
+  stroke: var(--color-ink-2);
   stroke-width: 1.5;
 }
 .hero-transform.is-live .ht-node,
@@ -1023,7 +1049,7 @@ body:has(.filter-bar:focus-within) .marquee-track {
   font-size: 20px;
 }
 .ht-embed {
-  fill: var(--color-clay);
+  fill: var(--data-a);
 }
 .ht-emb-halo {
   fill: var(--color-clay-soft);
@@ -1223,6 +1249,42 @@ body:has(.filter-bar:focus-within) .marquee-track {
   color: var(--color-clay);
   white-space: nowrap;
 }
+.skill-band {
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-sharp);
+  background: var(--color-card);
+}
+.skill-band-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.skill-band-head:hover {
+  background: var(--color-clay-soft);
+}
+.skill-band-n {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-ink-4);
+}
+.skill-band-body {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  padding: 0.25rem 1.25rem 1.5rem;
+  border-top: 1px dashed var(--color-hairline);
+}
+@media (width >= 768px) {
+  .skill-band-body {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 /* ===========================
    EXPERIENCE STRATA
@@ -1288,6 +1350,46 @@ body:has(.filter-bar:focus-within) .marquee-track {
   padding: 0.2rem 0.55rem;
   border-radius: var(--radius-sharp);
 }
+.exp-detail {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.exp-fact {
+  display: grid;
+  gap: 0.45rem;
+}
+.exp-fact-k {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-ink-3);
+}
+.exp-fact p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-ink-2);
+}
+.exp-bullet {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-ink-2);
+}
+.exp-bullet::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-ink-3);
+}
 
 /* ===========================
    CASE STUDIES
@@ -1347,11 +1449,371 @@ body:has(.filter-bar:focus-within) .marquee-track {
   .nn-svg.is-live .nn-edge,
   .hero-transform.is-live .ht-edge,
   .hero-transform.is-live .ht-node,
-  .hero-transform.is-live .ht-embed {
+  .hero-transform.is-live .ht-embed,
+  .sp-edge.is-live {
     animation: none;
   }
   .ba-fill,
-  .sim-fill {
+  .sim-fill,
+  .cv-prob-fill,
+  .rag-bar-fill,
+  .fa-poly {
     transition: none;
   }
+}
+
+/* ===========================
+   WHY DATA SCIENCE — clickable layers + live viz
+=========================== */
+.why-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (width >= 900px) {
+  .why-grid {
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+}
+.why-layers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.why-layer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.9rem;
+  align-items: baseline;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-top: 1px solid var(--color-hairline);
+  background: transparent;
+  padding: 1.1rem 0.25rem;
+  cursor: pointer;
+  color: var(--color-ink-2);
+  transition: color 0.2s, background 0.2s, padding-left 0.2s;
+}
+.why-layers li:last-child .why-layer {
+  border-bottom: 1px solid var(--color-hairline);
+}
+.why-layer:hover {
+  color: var(--color-ink);
+}
+.why-layer.is-active {
+  color: var(--color-ink);
+  background: var(--color-clay-soft);
+  padding-left: 0.75rem;
+}
+.why-layer-n {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-ink-4);
+}
+.why-layer-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.why-layer-glyph {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-ink-3);
+}
+.why-layer.is-active .why-layer-glyph {
+  color: var(--data-a);
+}
+.why-panel {
+  border: 1px solid var(--color-hairline);
+  background: var(--color-card);
+  border-radius: var(--radius-sharp-lg);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+.why-panel-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+.why-panel-cap {
+  margin: 0 0 1.25rem;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--color-ink-2);
+  border-left: 2px solid var(--color-ink);
+  padding-left: 1rem;
+}
+
+/* ===========================
+   DECISION BOUNDARY / SYSTEMS PIPELINE
+=========================== */
+.mathviz {
+  color: var(--color-ink-2);
+}
+.db-boundary {
+  stroke: var(--color-ink);
+  stroke-width: 2;
+  stroke-dasharray: 5 4;
+}
+.sp-box {
+  stroke-width: 1.5;
+  transition: stroke 0.2s, fill 0.2s;
+}
+.sp-node {
+  cursor: pointer;
+}
+.sp-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  fill: var(--color-ink-2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.sp-edge {
+  stroke: var(--color-hairline-strong);
+  stroke-width: 2;
+  stroke-dasharray: 4 8;
+}
+.sp-edge.is-live {
+  animation: dashFlow 1.6s linear infinite;
+}
+
+/* ===========================
+   RAG FLOW
+=========================== */
+.rag-flow {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.rag-step {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  border: 1px solid var(--color-hairline);
+  background: var(--color-card);
+  border-radius: var(--radius-sharp);
+  padding: 0.6rem 0.85rem;
+}
+.rag-step-k {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-ink-3);
+}
+.rag-step-v {
+  font-size: 0.85rem;
+  color: var(--color-ink-2);
+}
+.rag-vec {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 32px;
+}
+.rag-dim {
+  width: 5px;
+  border-radius: 1px;
+  opacity: 0.85;
+}
+.rag-chunks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.rag-chunk {
+  display: grid;
+  grid-template-columns: 42px 64px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--color-hairline);
+  background: var(--color-card);
+  border-radius: var(--radius-sharp);
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.rag-chunk:hover,
+.rag-chunk.is-open {
+  border-color: var(--color-hairline-strong);
+  background: var(--color-clay-soft);
+}
+.rag-score {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+.rag-bar {
+  height: 6px;
+  background: var(--color-dunes);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.rag-bar-fill {
+  display: block;
+  height: 100%;
+  transition: width 0.3s var(--ease-out-soft);
+}
+.rag-chunk-t {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--color-ink-2);
+}
+.rag-answer {
+  margin-top: 1rem;
+  border-left: 2px solid var(--color-ink);
+  padding: 0.25rem 0 0.25rem 1rem;
+}
+
+/* ===========================
+   COMPUTER-VISION CLASSIFIER
+=========================== */
+.cv-tile,
+.cv-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-sharp);
+  background: var(--color-card);
+  padding: 0.6rem 0.7rem;
+}
+.cv-tile {
+  align-items: center;
+  min-width: 104px;
+}
+.cv-stage {
+  flex: 1;
+  min-width: 130px;
+}
+.cv-tile-k,
+.cv-stage-k {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-ink-3);
+}
+.cv-tile-img {
+  width: 54px;
+  height: 54px;
+  border-radius: 4px;
+  opacity: 0.85;
+}
+.cv-tile-cap,
+.cv-stage-cap {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--color-ink-2);
+}
+.cv-stage-cap {
+  color: var(--color-ink-4);
+}
+.cv-arrow {
+  align-self: center;
+  color: var(--color-ink-4);
+}
+.cv-feats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+}
+.cv-feat {
+  height: 12px;
+  background: var(--color-ink-3);
+  border-radius: 1px;
+}
+.cv-layers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+}
+.cv-cl {
+  width: 10px;
+  background: var(--data-a);
+  opacity: 0.5;
+  border-radius: 2px;
+}
+.cv-probs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.cv-prob {
+  display: grid;
+  grid-template-columns: 78px 1fr 42px;
+  gap: 0.75rem;
+  align-items: center;
+}
+.cv-prob-c {
+  font-size: 0.85rem;
+  color: var(--color-ink-2);
+}
+.cv-prob-track {
+  height: 10px;
+  background: var(--color-dunes);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.cv-prob-fill {
+  display: block;
+  height: 100%;
+  transition: width 0.4s var(--ease-out-soft);
+}
+.cv-prob-v {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-align: right;
+  color: var(--color-ink-2);
+}
+
+/* ===========================
+   ABILITY-FACTOR RADAR
+=========================== */
+.fa-ring {
+  stroke: var(--color-hairline);
+  stroke-width: 1;
+}
+.fa-axis {
+  stroke: var(--color-hairline-strong);
+  stroke-width: 1;
+}
+.fa-poly {
+  fill: color-mix(in srgb, var(--data-a) 22%, transparent);
+  stroke: var(--data-a);
+  stroke-width: 2;
+  transition: all 0.3s var(--ease-out-soft);
+}
+.fa-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  fill: var(--color-ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Equation seed reads as the one colourful content mark in a quiet section */
+.eq-glyph {
+  color: var(--data-a);
 }

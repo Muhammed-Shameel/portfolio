@@ -6,6 +6,9 @@ import { useInView } from "../../hooks/useInView"
    The flow is CSS (see .nn-edge / .nn-node in index.css) so it pauses under
    reduced-motion with no JS timer running. */
 const LAYERS = [3, 4, 2]
+// Each layer reads as a stage of the pipeline: input (blue) → hidden (orange)
+// → output (green). Colour here is information, not decoration.
+const LAYER_FILL = ["var(--data-d)", "var(--data-a)", "var(--data-b)"]
 const W = 360
 const H = 240
 const XS = [54, 180, 306]
@@ -68,6 +71,10 @@ export default function NeuralNetViz() {
                 cx={n.x}
                 cy={n.y}
                 r={isActive ? 15 : 11}
+                style={{
+                  fill: isActive ? "var(--data-c)" : LAYER_FILL[n.layer],
+                  fillOpacity: isActive ? 1 : 0.82,
+                }}
                 tabIndex={0}
                 role="button"
                 aria-label={`Neuron in layer ${n.layer + 1}`}
@@ -84,7 +91,7 @@ export default function NeuralNetViz() {
 
       <figcaption className="nn-caption">
         {active ? (
-          <span className="font-mono text-[0.78rem] text-clay">
+          <span className="font-mono text-[0.78rem] text-ink">
             x&nbsp;&nbsp;→&nbsp;&nbsp;w·x + b&nbsp;&nbsp;→&nbsp;&nbsp;σ(&nbsp;)
           </span>
         ) : (

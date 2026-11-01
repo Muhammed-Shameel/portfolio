@@ -1,6 +1,6 @@
 import Section from "./Section"
 import Reveal from "./Reveal"
-import { statement, terminalProfile, skillTiers } from "../data/portfolio"
+import { statement, terminalProfile, aboutTimeline } from "../data/portfolio"
 
 const indentClass = ["", "pl-6", "pl-12"]
 const tokenClass = {
@@ -13,38 +13,54 @@ const tokenClass = {
   plain: "",
 }
 
+/* §20 — understand the background in ten seconds: a timeline, then one short
+   paragraph. No giant About Me block. The terminal sits alongside as the same
+   story told as code (a data surface, so it keeps its colour). */
 export default function About() {
   return (
     <Section
       id="about"
       index="02"
-      label="Statement"
-      title="The Way In"
+      label="How I got here"
+      title="How I Got Here"
       rule
       wide={false}
     >
-      {/* two-column statement block */}
-      <div className="mb-20 grid gap-10 md:grid-cols-12">
-        <Reveal
-          as="p"
-          variant="reveal-left"
-          className="text-[1.1rem] leading-[1.6] tracking-[-0.01em] text-ink md:col-span-7 md:text-[1.45rem]"
-        >
-          {statement.lead}
-        </Reveal>
-        <Reveal
-          as="p"
-          variant="reveal-right"
-          delay={1}
-          className="text-[0.95rem] leading-[1.9] text-ink-3 md:col-span-5"
-        >
-          {statement.body}
-        </Reveal>
-      </div>
+      <Reveal
+        as="p"
+        variant="reveal-fade"
+        className="mb-14 max-w-[720px] text-[1.1rem] leading-[1.6] tracking-[-0.01em] text-ink md:text-[1.35rem]"
+      >
+        {statement.lead}
+      </Reveal>
 
-      {/* terminal + capability rail */}
-      <div className="grid gap-8 md:grid-cols-12">
-        <Reveal variant="reveal-left" className="terminal md:col-span-7">
+      <div className="grid gap-12 md:grid-cols-12">
+        {/* the timeline */}
+        <div className="md:col-span-7">
+          <ol className="about-tl">
+            {aboutTimeline.map((step, i) => (
+              <Reveal
+                key={step.title}
+                as="li"
+                variant="reveal-rise"
+                delay={i}
+                className="about-tl-item"
+              >
+                <span className="about-tl-dot" aria-hidden="true" />
+                <div className="about-tl-body">
+                  <span className="about-tl-when">{step.when}</span>
+                  <h3 className="font-display text-[1.2rem] font-bold leading-tight tracking-[-0.02em] text-ink md:text-[1.45rem]">
+                    {step.title}
+                  </h3>
+                  <p className="mt-1 text-[0.9rem] leading-[1.75] text-ink-3">{step.note}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+
+        {/* terminal — the same identity, as a running file */}
+        <Reveal variant="reveal-right" delay={1} className="terminal md:col-span-5">
           <div className="terminal-header flex items-center gap-2 px-5 py-3">
             <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
             <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
@@ -54,7 +70,7 @@ export default function About() {
             </span>
           </div>
 
-          <div className="px-6 py-5 font-mono text-[0.82rem] leading-[2]">
+          <div className="px-6 py-5 font-mono text-[0.8rem] leading-[2]">
             {terminalProfile.map((line, i) => (
               <span key={i} className={`block ${indentClass[line.indent] ?? ""}`}>
                 {line.tokens.map(([type, value], j) => (
@@ -64,37 +80,12 @@ export default function About() {
                 ))}
               </span>
             ))}
-            {/* prompt + caret: the block reads as a running file, not an image */}
             <span className="block text-terminal-meta">
               <span className="syn-pine">&gt;&gt;&gt;</span>{" "}
               <span className="animate-blink">&#9613;</span>
             </span>
           </div>
         </Reveal>
-
-        <div className="grid gap-4 md:col-span-5">
-          {skillTiers.map((group, i) => (
-            <Reveal
-              key={group.title}
-              variant="reveal-fade"
-              delay={i}
-              className="flex items-baseline justify-between gap-6 border-b border-hairline pb-3"
-            >
-              <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-ink-3">
-                <span className="text-clay">{group.flow} ·</span> {group.title}
-              </span>
-              <span className="text-right text-[0.9rem] font-medium text-ink">
-                {group.items.slice(0, 3).join(" · ")}
-                {group.items.length > 3 && (
-                  <span className="whitespace-nowrap text-ink-3">
-                    {" "}
-                    +{group.items.length - 3} more
-                  </span>
-                )}
-              </span>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </Section>
   )

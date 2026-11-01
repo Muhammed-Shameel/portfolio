@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar"
 import SectionIndex from "./components/SectionIndex"
 import Hero from "./components/Hero"
-import Journey from "./components/Journey"
+import WhyDataScience from "./components/WhyDataScience"
 import About from "./components/About"
 import StatsBand from "./components/StatsBand"
 import HowIThink from "./components/HowIThink"
@@ -28,7 +28,7 @@ export default function App() {
       <SectionIndex />
       <main>
         <Hero />
-        <Journey />
+        <WhyDataScience />
         <About />
         <StatsBand />
         <HowIThink />

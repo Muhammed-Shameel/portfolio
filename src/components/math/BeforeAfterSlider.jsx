@@ -25,7 +25,10 @@ export default function BeforeAfterSlider({ metric }) {
         <p className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-ink-3">
           {label}
         </p>
-        <p className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-clay">
+        <p
+          className="font-mono text-[0.68rem] uppercase tracking-[0.16em]"
+          style={{ color: "var(--data-good)" }}
+        >
           −{cut}%
         </p>
       </div>

@@ -1,6 +1,9 @@
 import Reveal from "./Reveal"
 import BeforeAfterSlider from "./math/BeforeAfterSlider"
 import PCAExplorer from "./math/PCAExplorer"
+import ClassifyViz from "./math/ClassifyViz"
+import RAGFlow from "./math/RAGFlow"
+import FactorToggles from "./math/FactorToggles"
 
 /* A project rendered as the working-out it actually was: the problem, the data,
    the reasoning, what failed, what changed, and the measurable result — not a
@@ -75,6 +78,24 @@ export default function CaseStudy({ study, index }) {
         </Reveal>
       )}
 
+      {/* Grocery AI: let the visitor actually SEE the two systems it is made of */}
+      {study.id === "grocery-ai" && (
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          <Reveal variant="reveal-fade" className="border border-hairline bg-card p-6">
+            <p className="mb-3 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-ink-3">
+              Computer vision — what the classifier returns
+            </p>
+            <ClassifyViz />
+          </Reveal>
+          <Reveal variant="reveal-fade" delay={1} className="border border-hairline bg-card p-6">
+            <p className="mb-3 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-ink-3">
+              Retrieval (RAG) — how an answer stays grounded
+            </p>
+            <RAGFlow />
+          </Reveal>
+        </div>
+      )}
+
       {/* factor-analysis story gets the PCA toy */}
       {study.id === "premier-league" && (
         <Reveal variant="reveal-fade" className="mt-10 border border-hairline bg-card p-6">
@@ -90,6 +111,16 @@ export default function CaseStudy({ study, index }) {
               data the way the maths says the dominant directions should.
             </p>
           </div>
+        </Reveal>
+      )}
+
+      {/* football: the toggle-from-structure interaction (§13) */}
+      {study.id === "premier-league" && (
+        <Reveal variant="reveal-fade" className="mt-6 border border-hairline bg-card p-6">
+          <p className="mb-3 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-ink-3">
+            Latent abilities — toggle the factors, the representation changes
+          </p>
+          <FactorToggles />
         </Reveal>
       )}
 

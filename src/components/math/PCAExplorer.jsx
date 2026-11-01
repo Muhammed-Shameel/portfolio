@@ -98,9 +98,10 @@ export default function PCAExplorer() {
           <span className="text-ink-2">principal components</span>
         </div>
         <p className="text-[0.8rem] leading-[1.7] text-ink-3">
-          The clay line is the direction of greatest variance. Project the cloud
-          onto it and 36 columns quietly become a handful — that reduction is the
-          backbone of the Premier League factor analysis.
+          The solid axis is the direction of greatest variance; the dashed one is
+          orthogonal to it. Project the cloud onto the first axis and 36 columns
+          quietly become a handful — that reduction is the backbone of the Premier
+          League factor analysis.
         </p>
       </div>
     </div>

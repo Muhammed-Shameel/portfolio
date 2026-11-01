@@ -37,6 +37,8 @@ export default function VectorCosine() {
 
   // similarity bar: map cos ∈ [-1,1] → 0..100%
   const pct = ((cos + 1) / 2) * 100
+  // Semantic colour: aligned vectors read green, opposed read red.
+  const simColor = cos >= 0 ? "var(--data-good)" : "var(--data-bad)"
 
   return (
     <div className="mathviz">
@@ -91,14 +93,16 @@ export default function VectorCosine() {
 
         <div className="flex items-baseline justify-between font-mono text-[0.82rem]">
           <span className="text-ink-3">cos θ =</span>
-          <span className="text-clay tabular-nums">{cos.toFixed(3)}</span>
+          <span className="tabular-nums" style={{ color: simColor }}>
+            {cos.toFixed(3)}
+          </span>
           <span className="text-ink-2">{wordFor(cos)}</span>
         </div>
 
         {/* similarity bar */}
         <div className="sim-track" role="presentation">
           <span className="sim-center" />
-          <span className="sim-fill" style={{ width: `${pct}%` }} />
+          <span className="sim-fill" style={{ width: `${pct}%`, background: simColor }} />
         </div>
         <p className="text-[0.8rem] leading-[1.7] text-ink-3">
           Same cosine, different subject: two embeddings pointing the same way are
