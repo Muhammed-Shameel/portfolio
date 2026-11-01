@@ -15,7 +15,7 @@ const STATUS_CLASS = {
 
 export default function CurrentlyLearning() {
   return (
-    <Section id="learning" index="08" label="Currently learning" title="Not Finished" alternate rule>
+    <Section id="learning" index="06" label="Currently learning" title="Not Finished" alternate rule>
       <Reveal
         as="p"
         variant="reveal-fade"
@@ -31,7 +31,7 @@ export default function CurrentlyLearning() {
             as="li"
             variant="reveal-fade"
             delay={i % 4}
-            className="group flex items-baseline justify-between gap-6 border-b border-hairline py-5"
+            className="group flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-b border-hairline py-5"
           >
             <span className="flex items-baseline gap-4">
               <span className="font-mono text-[0.68rem] tracking-[0.18em] text-ink-4">
@@ -41,22 +41,28 @@ export default function CurrentlyLearning() {
                 {area.title}
               </span>
             </span>
-            <span className={`pill shrink-0 ${STATUS_CLASS[area.status] ?? "pill-build"}`}>
-              {area.status}
+            <span className="flex shrink-0 items-center gap-4">
+              {/* qualitative depth — five blocks, no invented percentage */}
+              <span
+                className="depth-track"
+                role="img"
+                aria-label={`Depth: ${area.depth} of 5`}
+              >
+                {[1, 2, 3, 4, 5].map((n) => (
+                  <span
+                    key={n}
+                    className={`depth-cell${n <= area.depth ? " is-on" : ""}`}
+                    aria-hidden="true"
+                  />
+                ))}
+              </span>
+              <span className={`pill ${STATUS_CLASS[area.status] ?? "pill-build"}`}>
+                {area.status}
+              </span>
             </span>
           </Reveal>
         ))}
       </ul>
-
-      <Reveal
-        as="p"
-        variant="reveal-fade"
-        className="mt-12 max-w-[640px] text-[0.95rem] leading-[1.9] text-ink-3"
-      >
-        The honest version of this section is the point of it. I would rather
-        show you exactly where I am and let the work make the case, than list
-        everything as mastered and have you find out otherwise in an interview.
-      </Reveal>
     </Section>
   )
 }

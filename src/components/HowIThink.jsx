@@ -1,19 +1,16 @@
 import { useState } from "react"
 import Section from "./Section"
 import Reveal from "./Reveal"
-import NeuralNetViz from "./math/NeuralNetViz"
-import VectorCosine from "./math/VectorCosine"
 import { howIThink } from "../data/portfolio"
 
 /* The method, made selectable. Clicking a stage brings its reasoning forward so
-   the loop reads as a process I move through, not a static list — and two small
-   maths toys carry the point better than a paragraph could. */
+   the loop reads as a process I move through, not a static list. */
 export default function HowIThink() {
   const [active, setActive] = useState(0)
   const stage = howIThink.stages[active]
 
   return (
-    <Section id="thinking" index="03" label="How I think" title="Not just the model">
+    <Section id="thinking" index="02" label="How I think" title="Not just the model">
       <Reveal
         as="p"
         variant="reveal-left"
@@ -68,21 +65,6 @@ export default function HowIThink() {
           ))}
         </p>
       </Reveal>
-
-      {/* two maths toys */}
-      <div className="mt-14 grid gap-10 md:grid-cols-2 md:gap-12">
-        <Reveal variant="reveal-left">
-          <NeuralNetViz />
-          <p className="mt-4 text-[0.85rem] leading-[1.8] text-ink-3">
-            A neuron is a weighted sum and a bend. Nothing about it needs to be
-            taken on faith — that is the part my mathematics background lets me
-            read directly.
-          </p>
-        </Reveal>
-        <Reveal variant="reveal-right" delay={1}>
-          <VectorCosine />
-        </Reveal>
-      </div>
     </Section>
   )
 }

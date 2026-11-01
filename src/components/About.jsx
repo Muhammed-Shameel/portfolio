@@ -20,7 +20,7 @@ export default function About() {
   return (
     <Section
       id="about"
-      index="02"
+      index="01"
       label="How I got here"
       title="How I Got Here"
       rule

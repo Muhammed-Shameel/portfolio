@@ -6,9 +6,9 @@ export const profile = {
   role: "Data Scientist",
   typedRoles: [
     "Data Scientist",
-    "Mathematics → Machine Learning",
+    "Problem-solver",
     "Applied AI in progress",
-    "ML Engineer (learning)",
+    "Lifelong learner",
   ],
   /* Canonical short positioning — mirrored in index.html metadata */
   summary:
@@ -16,9 +16,9 @@ export const profile = {
   about:
     "I did not start in software engineering and discover ML later. I started with mathematics — linear algebra, probability, statistics, optimisation — and moved into data science from there. My BSc gave me the reasoning underneath the models; my MSc in Data Science & Business Analytics, specialising in Data Engineering, is where I learned to build with it. I work the full line: data and assumptions, features and models, honest evaluation, then the FastAPI service and interface that make a result usable.",
   heroBio:
-    "Mathematics gave me the foundation. Machine learning is where I am learning to apply it. I build the unglamorous parts — data quality, features, honest evaluation, failure cases — and take results as far as a running system, not a notebook.",
+    "I came to data science by way of mathematics, and I'm deliberately working my way toward building AI that actually runs. I like the unglamorous middle — the messy data, the honest evaluation, the failure cases — and I keep going until a result becomes something a person can open and use.",
   /* Verified against public/ — the actual file name */
-  resumePath: "/MUHAMMED_SHAMEEL_Resume_UAE.pdf",
+  resumePath: "/MuhammedShameelDS-Resume.pdf",
   availability: "Available for new opportunities",
 }
 
@@ -26,15 +26,15 @@ export const profile = {
 export const heroIdentity = {
   statement: "From Mathematics to Machine Learning.",
   tagline:
-    "I use mathematics, statistics and machine learning to understand problems, build models and turn experiments into working systems.",
+    "I take messy, real-world problems — floods, food, football, business — and turn them into systems people can actually use. Mathematics is where I started; building is where I'm heading.",
   support: [
-    "Mathematics gave me the foundation.",
-    "Machine learning is where I am learning to apply it.",
+    "Curious about the why, not just the how.",
+    "Shipping while I learn.",
   ],
 }
 
 export const statement = {
-  lead: "I did not start with software engineering and then discover machine learning. I started with mathematics and statistics, and I am learning how to turn that foundation into intelligent systems that actually run.",
+  lead: "I did not set out to be a data scientist. I started with mathematics because I liked knowing why things work, wandered into data because I liked the mess of it, and I'm now building my way toward AI systems that run in the real world. This is the path so far.",
   body: "That order changes how I work. I would rather understand why a model behaves the way it does than accept a good score I cannot explain. So I stay on the parts most people rush past — the data, the assumptions, the features, the honest evaluation, the failure cases — because that is where the mathematics earns its keep, and where a result either holds up or does not.",
   contact: "I am looking for work where data quality, model reasoning and evaluation are taken seriously, and where I can keep getting stronger. If you have a dataset nobody has finished with, or a system that keeps guessing, I would like to hear about it.",
 }
@@ -43,7 +43,7 @@ export const stats = [
   { value: 9, label: "Projects built", note: "ML · RAG · vision · dashboards" },
   { value: 3, label: "Internships", note: "cloud data → agentic → applied AI" },
   { value: 2, label: "Degrees", note: "BSc Mathematics, MSc Data Science" },
-  { value: 1, label: "Through-line", note: "maths → models → systems" },
+  { value: 1, label: "Through-line", note: "curiosity → working systems" },
 ]
 
 /* Three short paragraphs under the statement band */
@@ -60,7 +60,6 @@ export const socials = {
 }
 
 export const navLinks = [
-  { id: "why", label: "Why DS" },
   { id: "thinking", label: "Approach" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
@@ -71,15 +70,14 @@ export const navLinks = [
 /* Every anchored section, in page order — drives the right-edge scroll spine */
 export const sectionIds = [
   { id: "hero", label: "Intro" },
-  { id: "why", label: "Why Data Science" },
   { id: "about", label: "How I got here" },
   { id: "thinking", label: "How I think" },
-  { id: "systems", label: "Equation → System" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Case Studies" },
   { id: "learning", label: "Learning" },
   { id: "education", label: "Education" },
+  { id: "achievements", label: "Achievements" },
   { id: "contact", label: "Contact" },
 ]
 
@@ -218,8 +216,6 @@ export const aboutTimeline = [
    The pipeline and index numbers are the real ones. The example chunks /
    answers are illustrative of how a query flows through it, not logged output. */
 export const ragDemo = {
-  note:
-    "Real architecture and index — 2,543 Chroma chunks across 68 subjects, 0.20 grounding threshold. The example questions and retrieved chunks below are illustrative of the flow, not logged outputs.",
   stats: [
     { k: "chunks", v: "2,543" },
     { k: "subjects", v: "68" },
@@ -287,8 +283,6 @@ export const ragDemo = {
    A simplified illustration of the classifier's output shape. It is NOT the
    live production model running in the browser — do not imply that it is. */
 export const classifyDemo = {
-  note:
-    "A simplified illustration of the classifier's output shape — top-3 probabilities per item. It is not the live production model running in your browser.",
   stages: ["Input", "Feature extraction", "CNN", "Prediction"],
   items: [
     {
@@ -322,8 +316,6 @@ export const classifyDemo = {
    Illustrative factor profiles from the derived 5-factor model, to show how a
    player's representation changes as you switch which latent abilities you keep. */
 export const abilityFactors = {
-  note:
-    "Illustrative profiles from the derived 5-factor model (36 columns → 5 factors). Toggling shows the same player read under different latent abilities — the point is that I look for structure, not columns.",
   factors: ["Passing", "Shooting", "Creativity", "Dribbling", "Defense"],
   players: [
     { name: "Playmaker", values: { Passing: 0.9, Shooting: 0.5, Creativity: 0.85, Dribbling: 0.7, Defense: 0.3 } },
@@ -389,7 +381,7 @@ export const currentlyLearning = {
 
 export const experiences = [
   {
-    role: "Enterprise AI Engineering Intern",
+    role: "Applied AI Intern",
     org: "InfoCreon Solutions Private Limited",
     period: "September 2026 – October 2026",
     location: "Kerala, India",
@@ -710,45 +702,16 @@ export const certificates = [
   "Kanz AI Training Hackathon Completion",
 ]
 
-export const interests = [
-  "Machine Learning",
-  "Applied AI",
-  "Data Engineering",
-  "NLP",
-  "Computer Vision",
-  "Mathematics",
-  "Statistics",
-]
-
-export const interestsExtra = [
-  {
-    title: "Understanding over using",
-    detail:
-      "I keep reaching for the derivation behind the method. Explaining why a model works is how I check that it actually does — and where it will quietly fail.",
-  },
-  {
-    title: "Open work",
-    detail:
-      "Everything I build goes on GitHub, notebooks and all, so the working-out is visible and not just the demo.",
-  },
-  {
-    title: "Teaching",
-    detail:
-      "Tutoring mathematics one-to-one still shapes how I present results — to a reviewer, and to myself. Explaining a method is how I check I understand it.",
-  },
-]
-
-export const languages = ["English", "Malayalam"]
-
 /* Words for the paper marquee strip */
 export const marqueeWords = [
-  "Mathematics",
-  "Statistics",
+  "Curiosity",
+  "Data",
   "Machine Learning",
   "RAG",
-  "Embeddings",
+  "Computer Vision",
   "FastAPI",
   "ONNX",
   "Evaluation",
   "Deployment",
+  "Problem solving",
 ]

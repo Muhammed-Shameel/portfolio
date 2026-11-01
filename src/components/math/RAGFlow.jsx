@@ -118,14 +118,7 @@ export default function RAGFlow() {
       <div className="rag-answer">
         <span className="rag-step-k">Context → Answer</span>
         <p className="mt-2 text-[0.92rem] leading-[1.75] text-ink">{question.a}</p>
-        <p className="mt-2 text-[0.78rem] leading-[1.6] text-ink-3">
-          {picked === null
-            ? "The answer is written only from the chunks above, so it stays grounded in the corpus instead of invented."
-            : `Chunk ${picked + 1} (relevance ${question.chunks[picked].s.toFixed(2)}) is what this answer leans on most here.`}
-        </p>
       </div>
-
-      <p className="mt-3 text-[0.75rem] leading-[1.6] text-ink-4">{ragDemo.note}</p>
     </div>
   )
 }

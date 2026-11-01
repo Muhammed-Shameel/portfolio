@@ -6,7 +6,7 @@ export default function Achievements() {
   return (
     <Section
       id="achievements"
-      index="10"
+      index="08"
       label="Recognition"
       title="Recognition & Certificates"
       alternate

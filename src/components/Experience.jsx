@@ -24,7 +24,7 @@ export default function Experience() {
     })
 
   return (
-    <Section id="experience" index="05" label="Experience" title="Layers, Climbed" rule>
+    <Section id="experience" index="03" label="Experience" title="Layers, Climbed" rule>
       <div className="grid gap-12 md:grid-cols-12">
         {/* sticky rail */}
         <div className="md:col-span-4">

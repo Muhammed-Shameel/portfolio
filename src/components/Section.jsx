@@ -18,7 +18,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`${alternate ? "bg-paper-2" : "bg-paper"} ${rule ? "rule-top" : ""} relative py-24 md:py-32`}
+      className={`${alternate ? "bg-paper-2" : "bg-paper"} ${rule ? "rule-top" : ""} relative py-28 md:py-44`}
     >
       <div
         className={`mx-auto w-full ${wide ? "max-w-[1440px]" : "max-w-[1160px]"} px-6 md:px-10`}
@@ -26,7 +26,7 @@ export default function Section({
         {(title || label) && (
           <Reveal
             variant="reveal-fade"
-            className="mb-14 flex flex-wrap items-end justify-between gap-x-8 gap-y-4 border-b border-hairline pb-6"
+            className="mb-16 flex flex-wrap items-end justify-between gap-x-8 gap-y-4 border-b border-hairline pb-7 md:mb-20"
           >
             {title && <h2 className="display-lg text-ink">{title}</h2>}
             {label && (

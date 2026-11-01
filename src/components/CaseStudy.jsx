@@ -1,6 +1,5 @@
 import Reveal from "./Reveal"
 import BeforeAfterSlider from "./math/BeforeAfterSlider"
-import PCAExplorer from "./math/PCAExplorer"
 import ClassifyViz from "./math/ClassifyViz"
 import RAGFlow from "./math/RAGFlow"
 import FactorToggles from "./math/FactorToggles"
@@ -96,29 +95,11 @@ export default function CaseStudy({ study, index }) {
         </div>
       )}
 
-      {/* factor-analysis story gets the PCA toy */}
+      {/* football: the relatable "structure in the data" interaction (§13) */}
       {study.id === "premier-league" && (
         <Reveal variant="reveal-fade" className="mt-10 border border-hairline bg-card p-6">
           <p className="mb-3 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-ink-3">
-            36 raw columns → 5 ability factors
-          </p>
-          <div className="grid gap-8 md:grid-cols-2 md:items-center">
-            <PCAExplorer />
-            <p className="text-[0.9rem] leading-[1.85] text-ink-2">
-              Standardised variables, then a covariance structure, then the
-              eigenvectors that describe it. Passing, Shooting, Creativity,
-              Dribbling and Defense were not hand-picked — they emerged from the
-              data the way the maths says the dominant directions should.
-            </p>
-          </div>
-        </Reveal>
-      )}
-
-      {/* football: the toggle-from-structure interaction (§13) */}
-      {study.id === "premier-league" && (
-        <Reveal variant="reveal-fade" className="mt-6 border border-hairline bg-card p-6">
-          <p className="mb-3 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-ink-3">
-            Latent abilities — toggle the factors, the representation changes
+            36 raw stats → 5 ability factors — toggle them, watch a player change shape
           </p>
           <FactorToggles />
         </Reveal>

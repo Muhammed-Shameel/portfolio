@@ -111,8 +111,6 @@ export default function FactorToggles() {
           </p>
         </div>
       </div>
-
-      <p className="mt-3 text-[0.75rem] leading-[1.6] text-ink-4">{abilityFactors.note}</p>
     </div>
   )
 }

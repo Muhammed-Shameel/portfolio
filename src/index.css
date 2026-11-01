@@ -61,7 +61,8 @@
   --color-terminal-fg: #edeade;
   --color-terminal-meta: #8f8c80;
   --color-danger: #cf5c46;
-  --panel-shadow: 0 24px 64px rgb(20 20 22 / 0.14);
+  --panel-shadow: 0 1px 1px rgb(20 20 22 / 0.03), 0 8px 16px -8px
+      rgb(20 20 22 / 0.1), 0 28px 56px -22px rgb(20 20 22 / 0.16);
   --grain-opacity: 0.025;
   --outline-stroke: 0.28vw;
   --hero-grid-line: rgb(20 20 22 / 0.04);
@@ -131,7 +132,8 @@ html.dark {
   --color-clay-line: rgb(244 244 243 / 0.24);
 
   /* Effects */
-  --panel-shadow: 0 24px 64px rgb(0 0 0 / 0.55);
+  --panel-shadow: 0 1px 1px rgb(0 0 0 / 0.3), 0 10px 20px -10px rgb(0 0 0 / 0.45),
+      0 32px 64px -24px rgb(0 0 0 / 0.6);
   --grain-opacity: 0.04;
   --outline-stroke: 0.32vw;
   --hero-grid-line: rgb(244 244 243 / 0.05);
@@ -235,7 +237,8 @@ html.dark {
       color-mix(in srgb, var(--color-terminal-fg) 9%, transparent);
     border-radius: var(--radius-sharp-lg);
     overflow: hidden;
-    box-shadow: var(--panel-shadow);
+    box-shadow: var(--panel-shadow),
+      inset 0 1px 0 rgb(255 255 255 / 0.05);
     color: var(--color-terminal-fg);
   }
 
@@ -380,13 +383,13 @@ html.dark {
 =========================== */
 .reveal {
   transition:
-    opacity 0.7s var(--ease-out-soft),
-    transform 0.7s var(--ease-out-soft);
+    opacity 0.85s var(--ease-out-soft),
+    transform 0.85s var(--ease-out-soft);
 }
 
 .reveal-on .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(30px);
   will-change: opacity, transform;
 }
 
@@ -400,13 +403,13 @@ html.dark {
   transform: none;
 }
 .reveal-on .reveal-left {
-  transform: translateX(-32px);
+  transform: translateX(-40px);
 }
 .reveal-on .reveal-right {
-  transform: translateX(32px);
+  transform: translateX(40px);
 }
 .reveal-on .reveal-rise {
-  transform: translateY(48px);
+  transform: translateY(56px);
 }
 
 /* ===========================
@@ -1118,6 +1121,76 @@ body:has(.filter-bar:focus-within) .marquee-track {
 }
 .journey-body {
   min-width: 0;
+}
+
+/* ===========================
+   ABOUT TIMELINE (§20)
+   A short vertical rail: dot on a hairline spine, when-label, title, note.
+   Understood in ten seconds. Monochrome chrome throughout.
+=========================== */
+.about-tl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.about-tl-item {
+  position: relative;
+  padding: 0 0 2rem 2rem;
+  margin-left: 7px;
+  border-left: 1px solid var(--color-hairline);
+}
+.about-tl-item:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+.about-tl-dot {
+  position: absolute;
+  left: -8px;
+  top: 4px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid var(--color-clay);
+  background: var(--color-paper);
+}
+.about-tl-item:first-child .about-tl-dot,
+.about-tl-item:last-child .about-tl-dot {
+  background: var(--color-clay);
+}
+.about-tl-when {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-clay);
+  margin-bottom: 0.35rem;
+}
+.about-tl-body {
+  min-width: 0;
+}
+
+/* ===========================
+   DEPTH BARS (§16)
+   Qualitative — five discrete blocks, no percentages, no fake precision.
+   Filled blocks use the data accent; empty ones stay neutral.
+=========================== */
+.depth-track {
+  display: inline-flex;
+  gap: 3px;
+}
+.depth-cell {
+  width: 16px;
+  height: 8px;
+  border-radius: 1px;
+  background: var(--color-dunes);
+  border: 1px solid var(--color-hairline);
+}
+.depth-cell.is-on {
+  background: var(--data-a);
+  border-color: transparent;
 }
 
 /* ===========================

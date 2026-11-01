@@ -6,7 +6,7 @@ export default function Education() {
   return (
     <Section
       id="education"
-      index="09"
+      index="07"
       label="Education"
       title="Two Degrees"
       rule

@@ -1,6 +1,5 @@
 import { useRef } from "react"
 import Reveal from "./Reveal"
-import HeroTransform from "./HeroTransform"
 import { profile, socials, heroIdentity } from "../data/portfolio"
 import { useTypedText } from "../hooks/useTypedText"
 import { usePointerParallax } from "../hooks/usePointerMotion"
@@ -41,9 +40,9 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 py-20 md:px-10">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-8">
-          {/* left: the identity */}
-          <div className="lg:col-span-7">
+        <div>
+          {/* the identity, leading — a person, not a formula */}
+          <div className="max-w-[900px]">
             <Reveal
               as="p"
               variant="reveal-fade"
@@ -119,8 +118,8 @@ export default function Hero() {
                 icon="fa fa-arrow-right transition-transform group-hover:translate-x-1"
               />
               <HeroLink
-                href="#why"
-                label="Why data science"
+                href="#about"
+                label="My journey"
                 icon="fa fa-arrow-down transition-transform group-hover:translate-y-1"
               />
               <HeroLink
@@ -133,18 +132,6 @@ export default function Hero() {
               <HeroLink href={`mailto:${socials.email}`} label="Email" icon="fa fa-envelope" />
             </Reveal>
           </div>
-
-          {/* right: mathematics becoming intelligence */}
-          <Reveal
-            as="div"
-            variant="reveal-fade"
-            delay={3}
-            className="lg:col-span-5"
-          >
-            <div className="hero-transform-wrap">
-              <HeroTransform />
-            </div>
-          </Reveal>
         </div>
       </div>
 

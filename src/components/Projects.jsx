@@ -28,7 +28,7 @@ export default function Projects() {
   }, [filter])
 
   return (
-    <Section id="projects" index="07" label="Case Studies" title="Work, Worked Through">
+    <Section id="projects" index="05" label="Case Studies" title="Work, Worked Through">
       <Reveal
         as="p"
         variant="reveal-fade"

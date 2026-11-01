@@ -17,10 +17,8 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-paper pb-20 pt-24 md:pb-28 md:pt-32"
+      className="relative overflow-hidden bg-paper pb-24 pt-32 md:pb-40 md:pt-44"
     >
-      <div className="hero-glow glow-amber animate-float-glow" />
-
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-6 md:px-10">
         {/* mono eyebrow row */}
         <Reveal
@@ -33,10 +31,10 @@ export default function Contact() {
 
         <h2 className="display-hero">
           <Reveal as="span" variant="reveal-rise" className="block text-ink">
-            Let&apos;s make
+            Let&apos;s reason
           </Reveal>
           <Reveal as="span" variant="reveal-rise" delay={1} className="outline-clay block">
-            something
+            with data.
           </Reveal>
         </h2>
 
@@ -46,6 +44,9 @@ export default function Contact() {
           delay={2}
           className="mt-10 max-w-[560px] text-[0.92rem] leading-[1.9] text-ink-3"
         >
+          <span className="font-medium text-ink">
+            Interested in how I think about data, models and systems? {""}
+          </span>
           {statement.contact}
         </Reveal>
 

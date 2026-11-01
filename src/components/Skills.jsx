@@ -20,7 +20,7 @@ export default function Skills() {
     })
 
   return (
-    <Section id="skills" index="06" label="Skills" title="The Data Science Toolbox" alternate rule>
+    <Section id="skills" index="04" label="Skills" title="The Data Science Toolbox" alternate rule>
       {/* marquee strip */}
       <Reveal variant="reveal-fade" className="marquee bleed-x mb-16 py-4">
         <div className="marquee-track">

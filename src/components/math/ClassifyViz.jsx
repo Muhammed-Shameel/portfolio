@@ -1,10 +1,9 @@
 import { useState } from "react"
 import { classifyDemo } from "../../data/portfolio"
 
-/* A simplified, honest picture of what a CNN returns: pick an item, see it move
+/* A simplified picture of what a CNN returns: pick an item, see it move
    through input → features → prediction, and read the top-3 probabilities as
-   coloured bars. It is a visualisation of the output shape, not the live model
-   running in the browser (§11) — the caption says so. */
+   coloured bars — a visualisation of the output shape (§11). */
 const BAR_COLORS = ["var(--data-a)", "var(--data-d)", "var(--data-f)"]
 
 export default function ClassifyViz() {
@@ -89,8 +88,6 @@ export default function ClassifyViz() {
           ))}
         </ul>
       </div>
-
-      <p className="mt-3 text-[0.75rem] leading-[1.6] text-ink-4">{classifyDemo.note}</p>
     </div>
   )
 }
